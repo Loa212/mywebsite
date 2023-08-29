@@ -6,8 +6,20 @@ module.exports = {
   plugins: [require("daisyui"), require("@tailwindcss/typography")],
   daisyui: {
     themes: [
-      "light",
-      "dark",
+      {
+        light: {
+          ...require("daisyui/src/theming/themes")["[data-theme=light]"],
+          primary: "black",
+          "primary-focus": "#334155",
+        },
+      },
+      {
+        dark: {
+          ...require("daisyui/src/theming/themes")["[data-theme=dark]"],
+          primary: "#0f172a",
+          "primary-focus": "#334155",
+        },
+      },
       {
         mytheme: {
           primary: "#FDBC01",
