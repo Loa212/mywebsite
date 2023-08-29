@@ -1,15 +1,22 @@
 ---
-const { content } = Astro.props;
+import { Drawer, Navbar } from "~/components";
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>{content.title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html id="root" lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Drawer>
+      <slot />
+    </Drawer>
+  </body>
 </html>
