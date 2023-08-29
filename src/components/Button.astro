@@ -1,38 +1,12 @@
 ---
-// Buttons with brand colors
-// <button class="btn">Button</button>
-// <button class="btn btn-neutral">Neutral</button>
-// <button class="btn btn-primary">Primary</button>
-// <button class="btn btn-secondary">Secondary</button>
-// <button class="btn btn-accent">Accent</button>
-// <button class="btn btn-ghost">Ghost</button>
-// <button class="btn btn-link">Link</button>
-// Buttons with active colors
-// <button class="btn btn-active">Default</button>
-// <button class="btn btn-active btn-neutral">Neutral</button>
-// <button class="btn btn-active btn-primary">Primary</button>
-// <button class="btn btn-active btn-secondary">Secondary</button>
-// <button class="btn btn-active btn-accent">Accent</button>
-// <button class="btn btn-active btn-ghost">Ghost</button>
-// <button class="btn btn-active btn-link">Link</button>
-// Buttons with state colors
-// <button class="btn btn-info">Info</button>
-// <button class="btn btn-success">Success</button>
-// <button class="btn btn-warning">Warning</button>
-// <button class="btn btn-error">Error</button>
-// Outline buttons
-// <button class="btn btn-outline">Default</button>
-// <button class="btn btn-outline btn-primary">Primary</button>
-// <button class="btn btn-outline btn-secondary">Secondary</button>
-// <button class="btn btn-outline btn-accent">Accent</button>
-//Sizes
-// <button class="btn btn-lg">Large</button>
-// <button class="btn">Normal</button>
-// <button class="btn btn-sm">Small</button>
-// <button class="btn btn-xs">Tiny</button>
-
 // sizes
 type sizeOpt = "xs" | "sm" | "md" | "lg";
+
+// square
+type squareOpt = boolean;
+
+// circle
+type circleOpt = boolean;
 
 //active
 type activeOpt = boolean;
@@ -55,6 +29,8 @@ type variantOpt =
 
 export interface Props {
   size?: sizeOpt;
+  square?: squareOpt;
+  circle?: circleOpt;
   active?: activeOpt;
   outline?: outlineOpt;
   variant?: variantOpt;
@@ -64,6 +40,8 @@ export interface Props {
 const {
   variant = "primary",
   size = "md",
+  square = false,
+  circle = false,
   active = false,
   outline = false,
 } = Astro.props;
@@ -81,6 +59,12 @@ const getClasslist = (): string => {
   }
   if (outline) {
     classlist.push("btn-outline");
+  }
+  if (square) {
+    classlist.push("btn-square");
+  }
+  if (circle) {
+    classlist.push("btn-circle");
   }
 
   const classes = classlist.join(" ");
