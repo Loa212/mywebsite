@@ -1,17 +1,96 @@
 ---
-// Click button, get confetti!
-// Styled by Tailwind :)
+// Buttons with brand colors
+// <button class="btn">Button</button>
+// <button class="btn btn-neutral">Neutral</button>
+// <button class="btn btn-primary">Primary</button>
+// <button class="btn btn-secondary">Secondary</button>
+// <button class="btn btn-accent">Accent</button>
+// <button class="btn btn-ghost">Ghost</button>
+// <button class="btn btn-link">Link</button>
+// Buttons with active colors
+// <button class="btn btn-active">Default</button>
+// <button class="btn btn-active btn-neutral">Neutral</button>
+// <button class="btn btn-active btn-primary">Primary</button>
+// <button class="btn btn-active btn-secondary">Secondary</button>
+// <button class="btn btn-active btn-accent">Accent</button>
+// <button class="btn btn-active btn-ghost">Ghost</button>
+// <button class="btn btn-active btn-link">Link</button>
+// Buttons with state colors
+// <button class="btn btn-info">Info</button>
+// <button class="btn btn-success">Success</button>
+// <button class="btn btn-warning">Warning</button>
+// <button class="btn btn-error">Error</button>
+// Outline buttons
+// <button class="btn btn-outline">Default</button>
+// <button class="btn btn-outline btn-primary">Primary</button>
+// <button class="btn btn-outline btn-secondary">Secondary</button>
+// <button class="btn btn-outline btn-accent">Accent</button>
+//Sizes
+// <button class="btn btn-lg">Large</button>
+// <button class="btn">Normal</button>
+// <button class="btn btn-sm">Small</button>
+// <button class="btn btn-xs">Tiny</button>
+
+// sizes
+type sizeOpt = "xs" | "sm" | "md" | "lg";
+
+//active
+type activeOpt = boolean;
+
+// outline
+type outlineOpt = boolean;
+
+// variantOpt has brand, outline & state colors
+type variantOpt =
+  | "primary"
+  | "secondary"
+  | "accent"
+  | "ghost"
+  | "link"
+  | "neutral"
+  | "info"
+  | "success"
+  | "warning"
+  | "error";
+
+export interface Props {
+  size?: sizeOpt;
+  active?: activeOpt;
+  outline?: outlineOpt;
+  variant?: variantOpt;
+  className?: string;
+}
+
+const {
+  variant = "primary",
+  size = "md",
+  active = false,
+  outline = false,
+} = Astro.props;
+
+const getClasslist = (): string => {
+  const classlist = ["btn"];
+  if (active) {
+    classlist.push("btn-active");
+  }
+  if (variant) {
+    classlist.push(`btn-${variant}`);
+  }
+  if (size) {
+    classlist.push(`btn-${size}`);
+  }
+  if (outline) {
+    classlist.push("btn-outline");
+  }
+
+  const classes = classlist.join(" ");
+
+  return Astro.props.className
+    ? `${classes} ${Astro.props.className}`
+    : classes;
+};
 ---
 
-<button class="btn btn-primary">
+<button class={getClasslist()}>
   <slot />
 </button>
-
-<!-- <script>
-  import confetti from "canvas-confetti";
-  const button = document.body.querySelector("button");
-
-  if (button) {
-    button.addEventListener("click", () => confetti());
-  }
-</script> -->
