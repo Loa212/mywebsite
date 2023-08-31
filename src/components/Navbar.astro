@@ -1,6 +1,9 @@
 ---
+import { getCollection } from "astro:content";
 import ThemeIcon from "./ThemeIcon.astro";
 import { ChevronDown } from "./icons";
+
+const blogPosts = await getCollection("blog");
 ---
 
 <div class="navbar bg-gray-100 dark:bg-slate-950 border-b">
@@ -27,15 +30,22 @@ import { ChevronDown } from "./icons";
       <li><a>Item 1</a></li>
       <li class="dropdown dropdown-hover">
         <label tabindex="0"
-          >Item 2
+          >blog
           <ChevronDown size={18} />
         </label>
         <ul
           tabindex="0"
           class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
         >
-          <li><a>Item 1</a></li>
-          <li><a>Item 2</a></li>
+          {
+            blogPosts.map((post) => (
+              <li>
+                <a href={`/${post.slug}`}>{post.data.title}</a>
+              </li>
+            ))
+          }
+          <!-- <li><a>Item 1</a></li>
+          <li><a>Item 2</a></li> -->
         </ul>
       </li>
       <li><a>Item 3</a></li>
