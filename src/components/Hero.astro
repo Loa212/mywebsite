@@ -1,11 +1,12 @@
 ---
+import { Image } from "astro:assets";
 import Button from "./Button.astro";
-import FakihAmriAbdullah from "/FakihAmriAbdullah.png";
+import FakihAmriAbdullah from "../assets/FakihAmriAbdullah.png";
 ---
 
 <div class="hero grow h-full">
   <div class="hero-content flex-col lg:flex-row-reverse">
-    <img
+    <Image
       src={FakihAmriAbdullah}
       class="max-w-sm"
       alt="programmer sitting on a chair"
