@@ -2,11 +2,12 @@
 import { getCollection } from "astro:content";
 import ThemeIcon from "./ThemeIcon.astro";
 import { ChevronDown } from "./icons";
+import { LanguageSwitch } from ".";
 
 const blogPosts = await getCollection("blog");
 ---
 
-<div class="navbar bg-gray-100 dark:bg-slate-950 border-b">
+<div class="navbar bg-gray-100 dark:bg-slate-950 border-b border-slate-400">
   <div class="navbar-start">
     <div class="flex-none lg:hidden">
       <label for="my-drawer-3" class="btn btn-square btn-ghost">
@@ -52,7 +53,8 @@ const blogPosts = await getCollection("blog");
     </ul>
   </div>
   <div class="navbar-end gap-3">
-    <a class="btn">Button</a>
+    <a class="btn">contact</a>
+    <LanguageSwitch />
     <ThemeIcon />
   </div>
 </div>
