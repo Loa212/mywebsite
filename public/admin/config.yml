@@ -14,7 +14,7 @@ collections:
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template
     fields: # The fields for each document, usually in front matter
-      - { label: "Title", name: "title", widget: "string" }
+      - { label: "title", name: "title", widget: "string" }
 
   - name: "services"
     label: "Services"
@@ -22,9 +22,9 @@ collections:
     create: true
     slug: "{{slug}}" # Filename template
     fields: # The fields for each document, usually in front matter
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Subtitle", name: "subtitle", widget: "string" }
-      - { label: "Icon", name: "icon", widget: "string" }
+      - { label: "title", name: "title", widget: "string" }
+      - { label: "subtitle", name: "subtitle", widget: "string" }
+      - { label: "icon", name: "icon", widget: "string" }
 
   # - name: "i18n"
   #   label: "i18n"
