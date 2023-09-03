@@ -14,7 +14,7 @@
     "@astrojs/netlify": "^3.0.1",
     "@astrojs/tailwind": "^5.0.0",
     "@types/canvas-confetti": "^1.6.0",
-    "astro": "^3.0.5",
+    "astro": "^3.0.7",
     "autoprefixer": "^10.4.14",
     "canvas-confetti": "^1.6.0",
     "postcss": "^8.4.24",
