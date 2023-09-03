@@ -1,0 +1,37 @@
+backend:
+  name: git-gateway
+  branch: main
+
+publish_mode: editorial_workflow
+
+media_folder: "src/assets" # Media files
+public_folder: "/assets" # The src attribute for uploaded media will begin with /images/uploads
+
+collections:
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+    label: "Blog" # Used in the UI
+    folder: "src/content/blog" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template
+    fields: # The fields for each document, usually in front matter
+      - { label: "Title", name: "title", widget: "string" }
+
+  - name: "services"
+    label: "Services"
+    folder: "src/content/services"
+    create: true
+    slug: "{{slug}}" # Filename template
+    fields: # The fields for each document, usually in front matter
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Subtitle", name: "subtitle", widget: "string" }
+      - { label: "Icon", name: "icon", widget: "string" }
+
+  # - name: "i18n"
+  #   label: "i18n"
+  #   folder: "src/content/blog"
+  #   create: true
+  #   slug: "{{slug}}" # Filename template
+  #   fields: # The fields for each document, usually in front matter
+  #     - { label: "Id", name: "id", widget: "string" }
+  #     - { label: "DisplayName", name: "displayName", widget: "string" }
+  #     - { label: "Nav", name: "nav", widget: "string" }
