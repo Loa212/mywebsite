@@ -1,0 +1,52 @@
+---
+import { type CollectionEntry, getEntry } from "astro:content";
+import { ArrowRight } from "./icons";
+import { getCollection } from "astro:content";
+
+export interface Props {
+  i18nId: CollectionEntry<"i18n">["id"];
+}
+
+const { i18nId } = Astro.props;
+
+const servicesCollection = await getCollection("services");
+
+const i18n = await getEntry("i18n", i18nId);
+const { services } = i18n.data;
+---
+
+<section class="text-gray-600 body-font">
+  <div class="container px-5 pb-24 mx-auto">
+    <div class="flex flex-wrap w-full mb-12 flex-col items-center text-center">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-white">
+        {services.title}
+      </h1>
+      <p class="lg:w-2/3 w-full leading-relaxed text-slate-400">
+        {services.subtitle}
+      </p>
+    </div>
+    <div class="flex flex-wrap -m-4">
+      {
+        servicesCollection.map((s) => {
+          return (
+            <div class="xl:w-1/3 md:w-1/2 p-4">
+              <div class="border border-gray-200 p-6 rounded-lg">
+                <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-4" />
+                <h2 class="text-lg text-white font-medium title-font mb-2">
+                  {s.data.title}
+                </h2>
+                <p class="leading-relaxed text-slate-400">{s.data.subtitle}</p>
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+    <div class="mx-auto mt-16 flex items-center justify-center">
+      <button class="btn btn-primary ring-1 ring-slate-300/20"
+        >{services.cta}
+        <ArrowRight size={16} />
+      </button>
+    </div>
+  </div>
+</section>

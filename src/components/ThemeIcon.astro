@@ -58,7 +58,12 @@ if (theme === "light") {
   document.documentElement.setAttribute("data-theme", "dark");
 }
 
-window.localStorage.setItem("theme", theme);
+const setTheme = () => window.localStorage.setItem("theme", theme);
+
+// Runs on initial navigation
+setTheme();
+// Runs on view transitions navigation
+document.addEventListener("astro:after-swap", setTheme);
 
 const handleToggleClick = () => {
   const element = document.documentElement;

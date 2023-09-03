@@ -1,11 +1,18 @@
 ---
+import type { CollectionEntry } from "astro:content";
 import Navbar from "./Navbar.astro";
+
+export interface Props {
+  i18nId: CollectionEntry<"i18n">["id"];
+}
+
+const { i18nId } = Astro.props;
 ---
 
 <div class="drawer">
   <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
   <div class="drawer-content flex flex-col min-h-screen">
-    <Navbar />
+    <Navbar i18nId={i18nId} />
     <!-- Page content here -->
     <slot />
   </div>

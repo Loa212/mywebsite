@@ -1,8 +1,13 @@
 ---
-import { getCollection } from "astro:content";
-import ThemeIcon from "./ThemeIcon.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
 import { ChevronDown } from "./icons";
 import { LanguageSwitch } from ".";
+
+export interface Props {
+  i18nId: CollectionEntry<"i18n">["id"];
+}
+
+const { i18nId } = Astro.props;
 
 const blogPosts = await getCollection("blog");
 ---
@@ -45,16 +50,14 @@ const blogPosts = await getCollection("blog");
               </li>
             ))
           }
-          <!-- <li><a>Item 1</a></li>
-          <li><a>Item 2</a></li> -->
         </ul>
       </li>
       <li><a>Item 3</a></li>
     </ul>
   </div>
   <div class="navbar-end gap-3">
+    <LanguageSwitch i18nId={i18nId} />
     <a class="btn">contact</a>
-    <LanguageSwitch />
-    <ThemeIcon />
+    <!-- <ThemeIcon /> -->
   </div>
 </div>

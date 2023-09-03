@@ -1,0 +1,20 @@
+{
+  "id": "tt",
+  "displayName": "English",
+  "nav": {
+    "home": "tt",
+    "portfolio": "tt",
+    "testimonials": "tt",
+    "prices": "tt"
+  },
+  "hero": {
+    "title": "Tailor-made web development.",
+    "subtitle": "We are a team of talented developers making custom websites for your business. Each website is unique and tailored to your needs.",
+    "cta": "Discover more"
+  },
+  "services": {
+    "title": "Our services",
+    "subtitle": "Tailored Solutions for Your Business. We offer a wide range of services to help you grow your business.",
+    "cta": "See more"
+  }
+}

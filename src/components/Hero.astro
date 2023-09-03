@@ -2,9 +2,19 @@
 import { Image } from "astro:assets";
 import Button from "./Button.astro";
 import FakihAmriAbdullah from "../assets/FakihAmriAbdullah.png";
+import { type CollectionEntry, getEntry } from "astro:content";
+
+export interface Props {
+  i18nId: CollectionEntry<"i18n">["id"];
+}
+
+const { i18nId } = Astro.props;
+
+const i18n = await getEntry("i18n", i18nId);
+const { hero } = i18n.data;
 ---
 
-<div class="hero grow h-full">
+<div class="hero grow h-full min-h-[70vh]">
   <div class="hero-content flex-col lg:flex-row-reverse">
     <Image
       src={FakihAmriAbdullah}
@@ -12,12 +22,11 @@ import FakihAmriAbdullah from "../assets/FakihAmriAbdullah.png";
       alt="programmer sitting on a chair"
     />
     <div>
-      <h1 class="text-5xl font-bold">Tailor-made web design</h1>
+      <h1 class="text-5xl font-bold">{hero.title}</h1>
       <p class="py-6">
-        We are a team of talented designers making custom websites for your
-        business. Each website is unique and tailored to your needs.
+        {hero.subtitle}
       </p>
-      <Button variant="success" size="lg">Discover more</Button>
+      <Button variant="success" size="lg">{hero.cta}</Button>
     </div>
   </div>
 </div>
