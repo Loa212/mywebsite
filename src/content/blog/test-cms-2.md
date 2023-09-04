@@ -1,4 +1,4 @@
 ---
-title: test CMS 2
+title: test CMS 2 encore
 ---
 
