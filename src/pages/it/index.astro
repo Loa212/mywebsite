@@ -4,6 +4,7 @@ import { Services, Hero } from "@components";
 import Main from "~/layouts/main.astro";
 import I18n from "./i18n";
 import { SITE_TITLE } from "~/constants";
+import Portfolio from "~/components/Portfolio.astro";
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
@@ -21,6 +22,7 @@ import { SITE_TITLE } from "~/constants";
   <Main i18nId={I18n} title={SITE_TITLE}>
     <Hero i18nId={I18n} />
     <Services i18nId={I18n} />
+    <Portfolio i18nId={I18n} />
   </Main>
 
 

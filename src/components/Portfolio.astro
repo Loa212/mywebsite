@@ -1,0 +1,62 @@
+---
+import { type CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import { ArrowRight } from "./icons";
+
+export interface Props {
+  i18nId: CollectionEntry<"i18n">["id"];
+}
+
+const { i18nId } = Astro.props;
+
+const portfolioCollection = await getCollection("portfolio");
+---
+
+<section class="body-font">
+  <div class="container px-5 pb-24 mx-auto">
+    <div class="flex flex-col mb-8 space-y-4">
+      <h1 class="font-medium title-font text-4xl mb-2 sm:mb-0">
+        Space The Final Frontier
+      </h1>
+      <p class="leading-relaxed text-base w-3/4">
+        Street art subway tile salvia four dollar toast bitters selfies quinoa
+        yuccie synth meditation iPhone intelligentsia prism tofu. Viral
+        gochujang bitters dreamcatcher.
+      </p>
+    </div>
+    <div class="grid lg:grid-cols-3 gap-8">
+      {
+        portfolioCollection.map(({ data, id, slug }) => (
+          <a
+            href={"/portfolio/" + slug}
+            class="card rounded-md bg-gray-700 text-white shadow-xl hover:ring-1 ring-white"
+          >
+            <figure>
+              <img
+                src={data.hero}
+                alt="Shoes"
+                transition:name={"client-screen-" + slug}
+              />
+            </figure>
+            <div class="card-body">
+              <h2 transition:name={"title" + slug} class="card-title">
+                {data.title}
+              </h2>
+              <p transition:name={"description" + slug}> {data.description}</p>
+              <div class="card-actions justify-end mt-6">
+                <button class="btn btn-primary">Learn more</button>
+              </div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="mx-auto mt-16 flex items-center justify-center">
+      <button class="btn btn-primary ring-1 ring-slate-300/20"
+        >find out more
+        <ArrowRight size={16} />
+      </button>
+    </div>
+  </div>
+</section>

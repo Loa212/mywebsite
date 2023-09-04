@@ -41,10 +41,23 @@ const servicesCollection = defineCollection({
   }),
 });
 
+const portfolioCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    date: z.string(),
+    url: z.string(),
+    hero: z.string(),
+    images: z.array(z.string()),
+  }),
+});
+
 // 3. Export a single `collections` object to register your collection(s)
 //    This key should match your collection directory name in "src/content"
 export const collections = {
   blog: blogCollection,
   i18n: i18nCollection,
   services: servicesCollection,
+  portfolio: portfolioCollection,
 };
