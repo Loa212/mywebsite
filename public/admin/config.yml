@@ -44,3 +44,4 @@ collections:
           widget: "list",
           fields: [{ label: "image", name: "image", widget: "image" }],
         }
+      - { label: "Body", name: "body", widget: "markdown" }
