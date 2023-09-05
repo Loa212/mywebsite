@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { getCollection, type CollectionEntry } from "astro:content";
 import { Figure } from "~/components";
 import { ArrowLeft, Globe } from "~/components/icons";
@@ -35,10 +36,7 @@ const { Content } = await client.render();
     <div class="container px-5 pt-8 pb-24 mx-auto flex flex-wrap">
       <div class="lg:w-1/2 w-full mb-10 lg:mb-0 rounded-lg overflow-hidden">
         <figure transition:name={"client-screen-" + slug}>
-          <Figure
-            src={hero}
-            alt={"Thumbnail for " + url.split("https://")[1].split("/")[0]}
-          />
+          <Image alt={title} src={hero as ImageMetadata} />
         </figure>
       </div>
       <div

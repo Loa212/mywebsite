@@ -33,7 +33,7 @@ const portfolioCollection = await getCollection("portfolio");
           >
             <figure>
               <img
-                src={`./src/assets/portfolio/${data.hero}`}
+                src={data.hero.src}
                 alt="Shoes"
                 transition:name={"client-screen-" + slug}
               />
