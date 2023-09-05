@@ -25,7 +25,7 @@ collections:
     fields: # The fields for each document, usually in front matter
       - { label: "title", name: "title", widget: "string" }
       - { label: "subtitle", name: "subtitle", widget: "string" }
-      - { label: "icon", name: "icon", widget: "string" }
+      - { label: "icon", name: "icon", widget: "image" }
   - name: "portfolio"
     label: "Portfolio"
     description: "this is a test description for portfolio"
@@ -44,3 +44,4 @@ collections:
           widget: "list",
           fields: [{ label: "image", name: "image", widget: "image" }],
         }
+      - { label: "body", name: "body", widget: "markdown" }
