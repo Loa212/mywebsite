@@ -31,11 +31,12 @@ collections:
     description: "this is a test description for portfolio"
     folder: "src/content/portfolio"
     create: true
+    delete: true
     slug: "{{slug}}" # Filename template
     fields:
       - { label: "title", name: "title", widget: "string" }
       - { label: "description", name: "description", widget: "string" }
-      - { label: "date", name: "date", widget: "datetime" }
+      - { label: "date", name: "date", widget: "string" }
       - { label: "url", name: "url", widget: "string" }
       - { label: "hero", name: "hero", widget: "image" }
       - {
@@ -44,4 +45,4 @@ collections:
           widget: "list",
           fields: [{ label: "image", name: "image", widget: "image" }],
         }
-      - { label: "body", name: "body", widget: "markdown" }
+      - { label: "Content", name: "body", widget: "markdown" }
