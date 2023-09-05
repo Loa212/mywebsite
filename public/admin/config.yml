@@ -18,6 +18,7 @@ collections:
       - { label: "title", name: "title", widget: "string" }
   - name: "services"
     label: "Services"
+    label_singular: "Service"
     description: "this is a test description for services"
     folder: "src/content/services"
     create: true
@@ -39,11 +40,4 @@ collections:
       - { label: "date", name: "date", widget: "string" }
       - { label: "url", name: "url", widget: "string" }
       - { label: "hero", name: "hero", widget: "image" }
-      - label: Images
-        name: images
-        widget: list
-        fields:
-          - label: Image
-            name: image
-            widget: image
       - { label: "Content", name: "body", widget: "markdown" }
