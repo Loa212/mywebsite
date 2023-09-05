@@ -9,7 +9,6 @@ import { config } from "./src/plugins/netlify-cms";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), mdx()],
-  output: "hybrid",
   integrations: [tailwind(), mdx(), NetlifyCMS({ config })],
   adapter: netlify(),
 });
