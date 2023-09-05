@@ -32,6 +32,7 @@ collections:
     folder: "src/content/portfolio"
     create: true
     slug: "{{slug}}" # Filename template
+    frontmatter_delimiter: "---"
     fields:
       - { label: "title", name: "title", widget: "string" }
       - { label: "description", name: "description", widget: "string" }
