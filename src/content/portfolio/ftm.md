@@ -3,13 +3,8 @@ title: "FTM GROUP SRL"
 description: "Transformed their website with stunning design, Astro-based development, and a user-friendly contact form for luxury car enthusiasts."
 date: "2020-01-01"
 url: "https://www.ftm.group/en/"
-hero: "./src/assets/portfolio/FTM.png"
-images:
-  [
-    "./src/assets/portfolio/CREA.png",
-    "./src/assets/portfolio/faulttolerance.png",
-    "./src/assets/portfolio/FTM.png",
-  ]
+hero: "FTM.png"
+images: ["CREA.png", "faulttolerance.png", "FTM.png"]
 ---
 
 ## Luxury Car Rental Website for FTM GROUP SRL

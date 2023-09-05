@@ -1,0 +1,26 @@
+---
+import { getImage } from "astro:assets";
+import { Image } from "astro:assets";
+
+export interface Props {
+  src: string;
+  alt: string;
+}
+
+const { src, alt } = Astro.props;
+
+const optimizedImage = await getImage({
+  src: "" + src,
+  format: "webp",
+  height: 400,
+  width: 800,
+});
+---
+
+<Image
+  class:list="object-contain w-full z-0"
+  src={`../assets/portfolio/${optimizedImage.src}`}
+  height={optimizedImage.attributes.height}
+  width={optimizedImage.attributes.width}
+  alt={alt}
+/>
