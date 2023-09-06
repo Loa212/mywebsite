@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import { getCollection, type CollectionEntry } from "astro:content";
-import { Figure } from "~/components";
 import { ArrowLeft, Globe } from "~/components/icons";
 import Main from "~/layouts/main.astro";
 
@@ -79,6 +78,17 @@ const { Content } = await client.render();
                 <Globe size={18} />
                  Visit website
               </a>
+            </div>
+            <div class="grid grid-cols-3 gap-3 mt-4">
+              {
+                images.map((image) => (
+                  <Image
+                    alt=""
+                    transition:name={"client-image-" + slug}
+                    src={image as ImageMetadata}
+                  />
+                ))
+              }
             </div>
           </div>
         </div>

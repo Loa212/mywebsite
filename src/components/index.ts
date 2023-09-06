@@ -7,10 +7,8 @@ import LanguageSwitch from "./LanguageSwitch.astro";
 import Services from "./Services.astro";
 import Portfolio from "./Portfolio.astro";
 import Carousel from "./Carousel.astro";
-import Figure from "./Figure.astro";
 
 export {
-  Figure,
   Button,
   Hero,
   Navbar,
