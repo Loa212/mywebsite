@@ -40,4 +40,10 @@ collections:
       - { label: "date", name: "date", widget: "string" }
       - { label: "url", name: "url", widget: "string" }
       - { label: "hero", name: "hero", widget: "image" }
+      - {
+          label: "images",
+          name: "images",
+          widget: "list",
+          fields: [{ label: "image", name: "image", widget: "image" }],
+        }
       - { label: "Content", name: "body", widget: "markdown" }
