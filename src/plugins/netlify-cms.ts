@@ -44,7 +44,11 @@ export const config: Omit<CmsConfig, "load_config_file" | "local_backend"> = {
         { label: "description", name: "description", widget: "string" },
         { label: "date", name: "date", widget: "datetime" },
         { label: "url", name: "url", widget: "string" },
-        { label: "hero", name: "hero", widget: "image" },
+        {
+          label: "hero",
+          name: "hero",
+          widget: "image",
+        },
         {
           label: "images",
           name: "images",

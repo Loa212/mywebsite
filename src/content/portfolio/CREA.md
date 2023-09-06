@@ -3,12 +3,12 @@ title: "CREA assicurazioni SPA"
 description: "Enhanced CREA Assicurazioni's online presence with a revamped landing page, CMS, mailing list integration, and core application redesign for insurance brokers."
 date: "2020-01-01"
 url: "https://crea-assicurazioni.com"
-hero: "./src/assets/portfolio/CREA.png"
+hero: "../../assets/CREA.png"
 images:
   [
-    "./src/assets/portfolio/CREA.png",
-    "./src/assets/portfolio/faulttolerance.png",
-    "./src/assets/portfolio/FTM.png",
+    "../../assets/CREA.png",
+    "../../assets/faulttolerance.png",
+    "../../assets/FTM.png",
   ]
 ---
 

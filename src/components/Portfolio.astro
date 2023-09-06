@@ -2,6 +2,7 @@
 import { type CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import { ArrowRight } from "./icons";
+import { Image } from "astro:assets";
 
 export interface Props {
   i18nId: CollectionEntry<"i18n">["id"];
@@ -26,17 +27,13 @@ const portfolioCollection = await getCollection("portfolio");
     </div>
     <div class="grid lg:grid-cols-3 gap-8">
       {
-        portfolioCollection.map(({ data, id, slug }) => (
+        portfolioCollection.map(({ data, id, slug, collection }) => (
           <a
             href={"/portfolio/" + slug}
             class="card rounded-md bg-gray-700 text-white shadow-xl hover:ring-1 ring-white"
           >
-            <figure>
-              <img
-                src={data.hero}
-                alt="Shoes"
-                transition:name={"client-screen-" + slug}
-              />
+            <figure transition:name={"client-screen-" + slug}>
+              <Image src={data.hero} alt="Shoes" />
             </figure>
             <div class="card-body">
               <h2 transition:name={"title" + slug} class="card-title">

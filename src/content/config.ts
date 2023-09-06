@@ -43,14 +43,15 @@ const servicesCollection = defineCollection({
 
 const portfolioCollection = defineCollection({
   type: "content",
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    date: z.string(),
-    url: z.string(),
-    hero: z.string(),
-    images: z.array(z.string()),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      date: z.string(),
+      url: z.string(),
+      hero: image(),
+      images: z.array(image()),
+    }),
 });
 
 // 3. Export a single `collections` object to register your collection(s)

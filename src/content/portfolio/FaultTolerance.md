@@ -3,12 +3,12 @@ title: "Fault Tolerance srl"
 description: "Crafted a high-performance, visually captivating website with custom blockchain illustrations, highlighting their blockchain expertise."
 date: "2020-01-01"
 url: "https://faulttolerance.io/"
-hero: "./src/assets/portfolio/faulttolerance.png"
+hero: "../../assets/faulttolerance.png"
 images:
   [
-    "./src/assets/portfolio/CREA.png",
-    "./src/assets/portfolio/faulttolerance.png",
-    "./src/assets/portfolio/FTM.png",
+    "../../assets/CREA.png",
+    "../../assets/faulttolerance.png",
+    "../../assets/FTM.png",
   ]
 ---
 
