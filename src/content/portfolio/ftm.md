@@ -3,12 +3,12 @@ title: "FTM GROUP SRL"
 description: "Transformed their website with stunning design, Astro-based development, and a user-friendly contact form for luxury car enthusiasts."
 date: "2020-01-01"
 url: "https://www.ftm.group/en/"
-hero: "/src/assets/FTM.png"
+hero: "/./src/assets/FTM.png"
 images:
   [
-    "/src/assets/CREA.png",
-    "/src/assets/faulttolerance.png",
-    "/src/assets/FTM.png",
+    "/./src/assets/CREA.png",
+    "/./src/assets/faulttolerance.png",
+    "/./src/assets/FTM.png",
   ]
 ---
 

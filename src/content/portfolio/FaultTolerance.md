@@ -5,12 +5,12 @@ description: >-
   blockchain illustrations, highlighting their blockchain expertise.
 date: "2020-01-01"
 url: "https://faulttolerance.io/"
-hero: /src/assets/faulttolerance.png
+hero: /./src/assets/faulttolerance.png
 images:
   [
-    "/src/assets/CREA.png",
-    "/src/assets/faulttolerance.png",
-    "/src/assets/FTM.png",
+    "/./src/assets/CREA.png",
+    "/./src/assets/faulttolerance.png",
+    "/./src/assets/FTM.png",
   ]
 ---
 
