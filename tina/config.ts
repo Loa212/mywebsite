@@ -10,8 +10,8 @@ const token = process.env.TinaToken;
 // Tina Config
 export default defineConfig({
   branch,
-  clientId,
-  token,
+  clientId: clientId,
+  token: token,
 
   build: {
     outputFolder: "admin",
