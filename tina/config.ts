@@ -19,8 +19,8 @@ export default defineConfig({
   },
   media: {
     tina: {
-      mediaRoot: "",
-      publicFolder: "public",
+      mediaRoot: "./src/assets",
+      publicFolder: "",
     },
   },
   schema: {
@@ -49,6 +49,7 @@ export default defineConfig({
         name: "i18n",
         label: "i18n",
         path: "src/content/i18n",
+        format: "json",
         fields: [
           {
             type: "string",

@@ -1,10 +1,17 @@
 ---
-title: "Fault Tolerance srl"
-description: "Crafted a high-performance, visually captivating website with custom blockchain illustrations, highlighting their blockchain expertise."
+title: Fault Tolerance srl
+description: >-
+  Crafted a high-performance, visually captivating website with custom
+  blockchain illustrations, highlighting their blockchain expertise.
 date: "2020-01-01"
 url: "https://faulttolerance.io/"
-hero: "./faulttolerance.png"
-images: ["./CREA.png", "./faulttolerance.png", "./FTM.png"]
+hero: /src/assets/faulttolerance.png
+images:
+  [
+    "/src/assets/CREA.png",
+    "/src/assets/faulttolerance.png",
+    "/src/assets/FTM.png",
+  ]
 ---
 
 ## Blockchain Software House Website
