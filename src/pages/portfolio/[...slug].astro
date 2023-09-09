@@ -84,7 +84,7 @@ const { Content } = await client.render();
                 images.map((image) => (
                   <Image
                     alt=""
-                    transition:name={"client-image-" + slug}
+                    transition:animate="slide"
                     src={image as ImageMetadata}
                   />
                 ))
