@@ -1,10 +1,13 @@
 import { defineConfig } from "tinacms";
 
 // Your hosting provider likely exposes this as an environment variable
+// @ts-expect-error
 const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main";
 
 // Environment variables for Tina Cloud
+// @ts-expect-error
 const clientId = process.env.TinaClientID;
+// @ts-expect-error
 const token = process.env.TinaToken;
 
 // Tina Config
