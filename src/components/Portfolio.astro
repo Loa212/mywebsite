@@ -29,7 +29,7 @@ const portfolioCollection = await getCollection("portfolio");
         portfolioCollection.map(({ data, id, slug }) => (
           <a
             href={"/portfolio/" + slug}
-            class="card rounded-md bg-gray-700 text-white shadow-xl hover:ring-1 ring-white"
+            class="card rounded-md bg-base-100 text-dark shadow-xl hover:ring-1 ring-white"
           >
             <figure>
               <img
@@ -44,7 +44,7 @@ const portfolioCollection = await getCollection("portfolio");
               </h2>
               <p transition:name={"description" + slug}> {data.description}</p>
               <div class="card-actions justify-end mt-6">
-                <button class="btn btn-primary">Learn more</button>
+                <button class="btn btn-primary text-white">Learn more</button>
               </div>
             </div>
           </a>
@@ -53,7 +53,7 @@ const portfolioCollection = await getCollection("portfolio");
     </div>
 
     <div class="mx-auto mt-16 flex items-center justify-center">
-      <button class="btn btn-primary ring-1 ring-slate-300/20"
+      <button class="btn btn-primary text-white ring-1 ring-slate-300/20"
         >find out more
         <ArrowRight size={16} />
       </button>
