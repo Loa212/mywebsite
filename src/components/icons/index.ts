@@ -4,6 +4,7 @@ import Check from "./check.astro";
 import ArrowRight from "./arrow-right.astro";
 import ArrowLeft from "./arrow-left.astro";
 import Globe from "./globe.astro";
+import WebDev from "./web-dev.astro";
 
 export {
   ChevronDown,
@@ -12,5 +13,6 @@ export {
   ArrowRight,
   ArrowLeft,
   Globe,
+  WebDev,
   // ... other icons
 };

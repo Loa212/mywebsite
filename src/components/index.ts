@@ -7,6 +7,8 @@ import LanguageSwitch from "./LanguageSwitch.astro";
 import Services from "./Services.astro";
 import Portfolio from "./Portfolio.astro";
 import Carousel from "./Carousel.astro";
+import BackdropShape from "./BackdropShape.astro";
+import Testimonials from "./Testimonials.astro";
 
 export {
   Button,
@@ -18,5 +20,7 @@ export {
   Services,
   Portfolio,
   Carousel,
+  BackdropShape,
+  Testimonials,
   //more...
 };

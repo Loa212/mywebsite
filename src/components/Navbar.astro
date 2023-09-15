@@ -31,8 +31,11 @@ const blogPosts = await getCollection("blog");
     </div>
     <a class="btn btn-ghost normal-case text-3xl text-primary font-bold">Loa212</a>
   </div>
-  <div class="navbar-center hidden lg:flex">
-    <ul class="menu menu-horizontal px-1">
+  <!-- <div class="navbar-center hidden lg:flex">
+    
+  </div> -->
+  <div class="navbar-end gap-3">
+    <ul class="menu menu-horizontal px-1 hidden lg:flex">
       <li><a>Item 1</a></li>
       <li class="dropdown dropdown-hover">
         <label tabindex="0"
@@ -54,10 +57,8 @@ const blogPosts = await getCollection("blog");
       </li>
       <li><a>Item 3</a></li>
     </ul>
-  </div>
-  <div class="navbar-end gap-3">
     <LanguageSwitch i18nId={i18nId} />
-    <a class="btn">contact</a>
+    <a class="btn btn-primary text-white">contact</a>
     <!-- <ThemeIcon /> -->
   </div>
 </div>
