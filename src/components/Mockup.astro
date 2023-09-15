@@ -1,0 +1,22 @@
+---
+import { Image } from "astro:assets";
+import mockup from "../assets/mockup.webp"
+---
+
+<div class="mx-auto max-w-5xl w-full">
+
+    <div class="mockup-browser border border-base-300 bg-[#F6F8FA]">
+      <div class="mockup-browser-toolbar">
+        <!-- <div class="input border border-base-300">https://daisyui.com</div> -->
+      </div>
+      <div class="flex justify-center px-4 pb-4">
+        <Image
+          class="w-full h-auto rounded-md ring-1 ring-black ring-opacity-5"
+          src={mockup}
+          alt="mockup"
+          width="900"
+          height="416"
+        />
+      </div>
+    </div>
+  </div>

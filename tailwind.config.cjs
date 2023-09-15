@@ -4,30 +4,22 @@ module.exports = {
     extend: {},
   },
   darkMode: "class",
-  plugins: [require("daisyui"), require("@tailwindcss/typography")],
+  plugins: [
+    require("daisyui"),
+    require("@tailwindcss/typography"),
+    require("tailwindcss-animated"),
+  ],
   daisyui: {
     themes: [
       {
-        light: {
-          ...require("daisyui/src/theming/themes")["[data-theme=light]"],
-          primary: "black",
-          "primary-focus": "#334155",
-        },
-      },
-      {
-        dark: {
-          ...require("daisyui/src/theming/themes")["[data-theme=dark]"],
-          primary: "#0f172a",
-          "primary-focus": "#334155",
-        },
-      },
-      {
         mytheme: {
-          primary: "#FDBC01",
+          primary: "#007AFF",
           secondary: "#f000b8",
           accent: "#1dcdbc",
           neutral: "#2b3440",
           "base-100": "#ffffff",
+          dark: "#101119",
+          "body-content": "#252525",
           info: "#3abff8",
           success: "#36d399",
           warning: "#fbbd23",
