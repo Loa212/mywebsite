@@ -9,6 +9,7 @@ import Portfolio from "./Portfolio.astro";
 import Carousel from "./Carousel.astro";
 import BackdropShape from "./BackdropShape.astro";
 import Testimonials from "./Testimonials.astro";
+import Pricing from "./Pricing.astro";
 
 export {
   Button,
@@ -22,5 +23,6 @@ export {
   Carousel,
   BackdropShape,
   Testimonials,
+  Pricing,
   //more...
 };
