@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { ViewTransitions } from "astro:transitions";
-import { Drawer } from "~/components";
+import { CookiesBanner, Drawer } from "~/components";
 import '@fontsource-variable/open-sans';
 
 export interface Props {
@@ -22,6 +22,7 @@ const { title, i18nId } = Astro.props;
   </head>
   <body>
     <Drawer i18nId={i18nId}>
+      <CookiesBanner />
       <slot />
     </Drawer>
     <style is:global>

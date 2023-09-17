@@ -12,6 +12,7 @@ import Testimonials from "./Testimonials.astro";
 import Pricing from "./Pricing.astro";
 import BottomCta from "./BottomCta.astro";
 import Footer from "./Footer.astro";
+import CookiesBanner from "./CookiesBanner.astro";
 
 export {
   Button,
@@ -28,5 +29,6 @@ export {
   Pricing,
   BottomCta,
   Footer,
+  CookiesBanner,
   //more...
 };
