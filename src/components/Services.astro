@@ -18,7 +18,7 @@ const i18n = await getEntry("i18n", i18nId);
 const { services } = i18n.data;
 ---
 
-<section class="py-24 ">
+<section class="pt-24 pb-0 lg:pb-24">
   <div class="container px-5 pb-24 mx-auto">
     <div class="flex flex-wrap w-full mb-12 flex-col items-center text-center space-y-6">
       <h2>
@@ -75,5 +75,11 @@ const { services } = i18n.data;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    }
+
+    @media (max-width: 767px) {
+      h2 {
+        font-size: 36px;
+      }
     }
 </style>

@@ -10,6 +10,8 @@ import Carousel from "./Carousel.astro";
 import BackdropShape from "./BackdropShape.astro";
 import Testimonials from "./Testimonials.astro";
 import Pricing from "./Pricing.astro";
+import BottomCta from "./BottomCta.astro";
+import Footer from "./Footer.astro";
 
 export {
   Button,
@@ -24,5 +26,7 @@ export {
   BackdropShape,
   Testimonials,
   Pricing,
+  BottomCta,
+  Footer,
   //more...
 };

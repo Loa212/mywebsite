@@ -1,6 +1,6 @@
 ---
 // Component Imports
-import { Services, Hero, Portfolio, Testimonials, Pricing } from "@components";
+import { Services, Hero, Portfolio, Testimonials, Pricing, BottomCta, Footer } from "@components";
 import Main from "~/layouts/main.astro";
 import I18n from "./i18n";
 import { SITE_TITLE } from "~/constants";
@@ -31,7 +31,7 @@ import Stats from "~/components/Stats.astro";
     <Testimonials i18nId={I18n} />
     <Pricing i18nId={I18n} />
     <Portfolio i18nId={I18n} />
+    <BottomCta i18nId={I18n} />
+    <Footer i18nId={I18n} />
   </Main>
-
-
 </html>

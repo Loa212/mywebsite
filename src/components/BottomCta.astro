@@ -1,0 +1,16 @@
+---
+import { Image } from "astro:assets";
+import { BackdropShape } from ".";
+import mascotte from "../assets/mascotte.webp";
+
+---
+
+<section class="pt-0 pb-72 relative flex flex-col items-center justify-center gap-8">
+<BackdropShape />
+
+<h3 class="text-4xl text-primary font-bold">Loa212</h3>
+<h3 class="text-5xl font-bold max-w-4xl text-center leading-relaxed">Start Building Your Vision Today</h3>
+<a href="" class="btn btn-primary btn-lg">Get Started</a>
+<Image loading={"lazy"} class={"absolute -bottom-24 overflow-clip -z-30 animate-fade-up animate-once animate-delay-200"} src={mascotte} alt="mascotte" width={300} height={300} />
+
+</section>
