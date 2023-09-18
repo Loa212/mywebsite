@@ -4,15 +4,11 @@ export type CookiePreferences = {
   thirdParty: boolean;
 };
 
-const panic = () => window.location.reload();
-
 const showMainCookieBanner = () => {
   const mainCookieBanner =
     document.querySelector<HTMLDivElement>("#cookieBanner");
   if (mainCookieBanner) {
     mainCookieBanner.style.display = "block";
-  } else {
-    panic(); // reload the page
   }
 };
 
@@ -22,8 +18,6 @@ const showSmallerCookieBanner = () => {
   );
   if (smallerBanner) {
     smallerBanner.style.display = "block";
-  } else {
-    panic(); // reload the page
   }
 };
 
@@ -32,8 +26,6 @@ const hideMainCookieBanner = () => {
     document.querySelector<HTMLDivElement>("#cookieBanner");
   if (mainCookieBanner) {
     mainCookieBanner.style.display = "none";
-  } else {
-    panic(); // reload the page
   }
 };
 
@@ -43,8 +35,6 @@ const hideSmallerCookieBanner = () => {
   );
   if (smallerBanner) {
     smallerBanner.style.display = "none";
-  } else {
-    panic(); // reload the page
   }
 };
 
@@ -90,8 +80,6 @@ function main() {
       strictlyNecessaryCheckbox.checked = preferences.strictlyNecessary;
       preferencesCheckbox.checked = preferences.preferences;
       thirdPartyCheckbox.checked = preferences.thirdParty;
-    } else {
-      panic(); // reload the page
     }
 
     acceptedStrictlyNecessary = preferences.strictlyNecessary;
@@ -123,7 +111,9 @@ function main() {
       console.log(
         "Scripts are disabled because strictly necessary cookies are not accepted."
       );
-      panic(); // reload the page
+      hideSmallerCookieBanner();
+      showMainCookieBanner();
+      return;
     }
 
     // Hide the main cookie banner
@@ -165,8 +155,6 @@ function main() {
     closeCookiePrefsModal.addEventListener("click", () => {
       hideCookiePrefsModal();
     });
-  } else {
-    panic(); // reload the page
   }
 
   // Event listener for "Accept All" button
@@ -176,8 +164,6 @@ function main() {
     acceptAllButton.addEventListener("click", () => {
       acceptAllCookies();
     });
-  } else {
-    panic(); // reload the page
   }
 
   // Event listener for "Save Preferences" button
@@ -211,8 +197,6 @@ function main() {
       saveCookiePreferences(preferences);
       hideCookiePrefsModal();
     });
-  } else {
-    panic(); // reload the page
   }
 
   // Event listener for "strictlyNecessaryCheckbox"
@@ -255,50 +239,6 @@ function main() {
       strictlyNecessaryCheckbox.checked = preferences.strictlyNecessary;
       preferencesCheckbox.checked = preferences.preferences;
       thirdPartyCheckbox.checked = preferences.thirdParty;
-    } else {
-      panic(); // reload the page
-    }
-  };
-
-  const checkSavedCookiePrefs = () => {
-    const savedCookiePrefs = localStorage.getItem("cookiePrefs");
-    if (savedCookiePrefs) {
-      const preferences: CookiePreferences = JSON.parse(savedCookiePrefs);
-      // Apply saved preferences here (customize this part)
-      const strictlyNecessaryCheckbox =
-        document.querySelector<HTMLInputElement>("#strictlyNecessaryCheckbox");
-      const preferencesCheckbox = document.querySelector<HTMLInputElement>(
-        "#preferencesCheckbox"
-      );
-      const thirdPartyCheckbox = document.querySelector<HTMLInputElement>(
-        "#thirdPartyCheckbox"
-      );
-      if (
-        strictlyNecessaryCheckbox &&
-        preferencesCheckbox &&
-        thirdPartyCheckbox
-      ) {
-        strictlyNecessaryCheckbox.checked = preferences.strictlyNecessary;
-        preferencesCheckbox.checked = preferences.preferences;
-        thirdPartyCheckbox.checked = preferences.thirdParty;
-      } else {
-        panic(); // reload the page
-      }
-
-      acceptedStrictlyNecessary = preferences.strictlyNecessary;
-
-      if (!acceptedStrictlyNecessary) {
-        // Disable scripts if strictly necessary cookies are not accepted
-        console.log(
-          "Scripts are disabled because strictly necessary cookies are not accepted."
-        );
-      } else {
-        // Hide the main cookie banner
-        hideMainCookieBanner();
-
-        // Show the smaller banner at the bottom left corner
-        showSmallerCookieBanner();
-      }
     }
   };
 }
