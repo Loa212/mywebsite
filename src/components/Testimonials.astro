@@ -9,92 +9,95 @@ import scarlet from "../assets/testimonials/scarlet.webp";
   >
     <figure class="absolute z-20">
       <Image class="max-w-md" src={scarlet} alt={"scarlet"} />
-      <div class="bg-stripe"></div>
     </figure>
-    <div class="lg:col-span-7 flex items-center justify-center">
-      <div class="bg-stripe py-16 space-y-4 grid lg:grid-cols-8 p-4">
-        <div class="col-span-5">
-          <h3>Scarlet P.</h3>
-          <p class="comment mt-2">
-            I was blown away by the website design crafted by this company.
-            Their attention to detail and creative approach truly set my
-            business apart online. I highly recommend them for anyone seeking
-            top-notch web design services.
-          </p>
-          <div class="rating lg:rating-sm mt-6">
-            <input
-              type="radio"
-              name="rating-6"
-              class="mask mask-star-2 bg-orange-400"
-              checked
-            />
-            <input
-              type="radio"
-              name="rating-6"
-              class="mask mask-star-2 bg-orange-400"
-              checked
-            />
-            <input
-              type="radio"
-              name="rating-6"
-              class="mask mask-star-2 bg-orange-400"
-              checked
-            />
-            <input
-              type="radio"
-              name="rating-6"
-              class="mask mask-star-2 bg-orange-400"
-              checked
-            />
-            <input
-              type="radio"
-              name="rating-6"
-              class="mask mask-star-2 bg-orange-400"
-              checked
-            />
-          </div>
+    <div class="bg-stripe"></div>
+  </div>
+  <div class="lg:col-span-7 flex items-center justify-center">
+    <div class="bg-stripe py-16 space-y-4 grid lg:grid-cols-8 p-4">
+      <div class="col-span-5">
+        <h3>Scarlet P.</h3>
+        <p class="comment mt-2">
+          I was blown away by the website design crafted by this company. Their
+          attention to detail and creative approach truly set my business apart
+          online. I highly recommend them for anyone seeking top-notch web
+          design services.
+        </p>
+        <div class="rating lg:rating-sm mt-6">
+          <input
+            type="radio"
+            name="rating-6"
+            class="mask mask-star-2 bg-orange-400"
+            checked
+          />
+          <input
+            type="radio"
+            name="rating-6"
+            class="mask mask-star-2 bg-orange-400"
+            checked
+          />
+          <input
+            type="radio"
+            name="rating-6"
+            class="mask mask-star-2 bg-orange-400"
+            checked
+          />
+          <input
+            type="radio"
+            name="rating-6"
+            class="mask mask-star-2 bg-orange-400"
+            checked
+          />
+          <input
+            type="radio"
+            name="rating-6"
+            class="mask mask-star-2 bg-orange-400"
+            checked
+          />
         </div>
-        <div class="hidden lg:block col-span-3"></div>
       </div>
+      <div class="hidden lg:block col-span-3"></div>
     </div>
   </div>
+</section>
 
-  <style>
-    h3 {
-      color: #252525;
-      font-size: 28px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 40px; /* 142.857% */
-    }
+<style>
+  h3 {
+    color: #252525;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; /* 142.857% */
+  }
 
+  .comment {
+    @apply text-base font-normal text-gray-500;
+  }
+
+  @media (max-width: 768px) {
     .comment {
-      @apply text-base font-normal text-gray-500;
+      @apply text-lg;
     }
+  }
 
-    @media (max-width: 768px) {
-      .comment {
-        @apply text-lg;
-      }
-    }
+  .bg-stripe {
+    /* border-radius: 10px; */
+    height: 100%;
+    width: 100%;
+    opacity: 0.8;
+    /* // only use a single background color that is similar to the gradient below */
+    background: #ebf4fd;
 
+    backdrop-filter: blur(40px);
+  }
+
+  @media (min-width: 1024px) {
     .bg-stripe {
-      /* border-radius: 10px; */
-      height: 100%;
-      width: 100%;
-      opacity: 0.8;
+      height: 66.666667%;
       background: linear-gradient(
         112deg,
         rgba(0, 122, 255, 0.1) 0%,
         rgba(10, 112, 222, 0.1) 100%
       );
-      backdrop-filter: blur(40px);
     }
-
-    @media (min-width: 1024px) {
-      .bg-stripe {
-        height: 66.666667%;
-      }
-    }
-  </style>
-</section>
+  }
+</style>
