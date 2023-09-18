@@ -1,5 +1,5 @@
 ---
 title: "Web Development"
-subtitle: "Building Robust and Responsive Websites."
-icon: "web-development.svg"
+description: "Building Robust and Responsive Websites."
+id: "web-development"
 ---

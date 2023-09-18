@@ -1,4 +1,4 @@
-import { defineConfig } from "tinacms";
+import { Form, TinaCMS, defineConfig } from "tinacms";
 
 // Your hosting provider likely exposes this as an environment variable
 // @ts-expect-error
@@ -158,17 +158,27 @@ export default defineConfig({
           },
           {
             type: "string",
-            name: "subtitle",
-            label: "Subtitle",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "icon",
-            label: "Icon",
+            name: "description",
+            label: "Description",
             required: true,
           },
         ],
+        ui: {
+          beforeSubmit: async ({
+            form,
+            cms,
+            values,
+          }: {
+            form: Form;
+            cms: TinaCMS;
+            values: Record<string, any>;
+          }) => {
+            return {
+              ...values,
+              id: values.title.toLowerCase().replace(/ /g, "-"), // slugify
+            };
+          },
+        },
       },
       {
         name: "portfolio",

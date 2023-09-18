@@ -26,7 +26,7 @@ function saveCookiePreferences(preferences) {
   if (!preferences.strictlyNecessary) {
     // Disable scripts if strictly necessary cookies are not accepted
     console.log(
-      "Scripts are disabled because strictly necessary cookies are not accepted."
+      "Scripts are disabled because strictly necessary cookies are not accepted.",
     );
     window.location.reload();
   }
@@ -105,7 +105,7 @@ if (saveCookiePrefsButton) {
     if (!preferences.strictlyNecessary) {
       // Disable scripts if strictly necessary cookies are not accepted
       console.log(
-        "Scripts are disabled because strictly necessary cookies are not accepted."
+        "Scripts are disabled because strictly necessary cookies are not accepted.",
       );
     }
 
@@ -118,7 +118,7 @@ if (saveCookiePrefsButton) {
 // event listener for "strictlyNecessaryCheckbox"
 // when the checkbox gets unchecked, the other checkboxes get unchecked too
 const strictlyNecessaryCheckbox = document.getElementById(
-  "strictlyNecessaryCheckbox"
+  "strictlyNecessaryCheckbox",
 );
 strictlyNecessaryCheckbox.addEventListener("change", () => {
   if (!strictlyNecessaryCheckbox.checked) {
@@ -151,7 +151,7 @@ const checkSavedCookiePrefs = () => {
     if (!acceptedStrictlyNecessary) {
       // Disable scripts if strictly necessary cookies are not accepted
       console.log(
-        "Scripts are disabled because strictly necessary cookies are not accepted."
+        "Scripts are disabled because strictly necessary cookies are not accepted.",
       );
     } else {
       // Hide the main cookie banner
@@ -181,7 +181,7 @@ if (savedCookiePrefs) {
   if (!acceptedStrictlyNecessary) {
     // Disable scripts if strictly necessary cookies are not accepted
     console.log(
-      "Scripts are disabled because strictly necessary cookies are not accepted."
+      "Scripts are disabled because strictly necessary cookies are not accepted.",
     );
   } else {
     // Hide the main cookie banner

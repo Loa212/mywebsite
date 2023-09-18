@@ -4,13 +4,12 @@ description: >-
   Enhanced CREA Assicurazioni's online presence with a revamped landing page,
   CMS, mailing list integration, and core application redesign for insurance
   brokers.
-date: '2020-01-01'
-url: 'https://crea-assicurazioni.com'
+date: "2020-01-01"
+url: "https://crea-assicurazioni.com"
 hero: /./src/assets/CREA.png
 images:
   - /./src/assets/CREA.png
 ---
-
 
 ## CREA Assicurazioni - Insurance Software Company
 

@@ -1,59 +1,63 @@
 ---
 
 ---
+
 <section class="w-full bg-card">
-    <div class="container mx-auto h-full max-w-4xl py-20">
-        <h2>Loa212 is the most popular digital agency for web development</h2>
-            <div class="grid grid-cols-3 gap-8 mt-16">
-                <div class="flex flex-col items-center justify-center gap-2">
-                    <h3 class="stat-title">160+</h3>
-                    <p class="text-sm text-center lg:text-base">Successful Projects</p>
-                </div>
-                <div class="flex flex-col items-center justify-center gap-2">
-                    <h3 class="stat-title">100+</h3>
-                    <p class="text-sm text-center lg:text-base">Satisfied Customers</p>
-                </div>
-                <div class="flex flex-col items-center justify-center gap-2">
-                    <h3 class="stat-title">6+</h3>
-                    <p class="text-sm text-center lg:text-base">Years of experience</p>
-                </div>
-            </div>
+  <div class="container mx-auto h-full max-w-4xl py-20">
+    <h2>Loa212 is the most popular digital agency for web development</h2>
+    <div class="grid grid-cols-3 gap-8 mt-16">
+      <div class="flex flex-col items-center justify-center gap-2">
+        <h3 class="stat-title">160+</h3>
+        <p class="text-sm text-center lg:text-base">Successful Projects</p>
+      </div>
+      <div class="flex flex-col items-center justify-center gap-2">
+        <h3 class="stat-title">100+</h3>
+        <p class="text-sm text-center lg:text-base">Satisfied Customers</p>
+      </div>
+      <div class="flex flex-col items-center justify-center gap-2">
+        <h3 class="stat-title">6+</h3>
+        <p class="text-sm text-center lg:text-base">Years of experience</p>
+      </div>
     </div>
+  </div>
 </section>
 
-
 <style>
-    .bg-card {
-        opacity: 0.8;
-        background: linear-gradient(112deg, rgba(0, 122, 255, 0.10) 0%, rgba(10, 112, 222, 0.10) 100%);
-        backdrop-filter: blur(25px);
-    }
+  .bg-card {
+    opacity: 0.8;
+    background: linear-gradient(
+      112deg,
+      rgba(0, 122, 255, 0.1) 0%,
+      rgba(10, 112, 222, 0.1) 100%
+    );
+    backdrop-filter: blur(25px);
+  }
 
+  h2 {
+    color: #252525;
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 64px; /* 133.333% */
+    text-transform: capitalize;
+  }
+
+  @media (max-width: 768px) {
     h2 {
-        color: #252525;
-        text-align: center;
-        font-family: Helvetica;
-        font-size: 48px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 64px; /* 133.333% */
-        text-transform: capitalize;
+      font-size: 32px;
+      line-height: 40px;
     }
+  }
 
-    @media (max-width: 768px) {
-        h2 {
-            font-size: 32px;
-            line-height: 40px;
-        }
-    }
+  .stat-title {
+    @apply text-4xl text-primary font-bold;
+  }
 
+  @media (max-width: 768px) {
     .stat-title {
-        @apply text-4xl text-primary font-bold;
+      font-size: 24px;
     }
-
-    @media (max-width: 768px) {
-        .stat-title {
-            font-size: 24px;
-        }
-    }
+  }
 </style>

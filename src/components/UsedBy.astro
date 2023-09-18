@@ -1,10 +1,10 @@
 ---
-import {ArrowRight} from "./icons"
+import { ArrowRight } from "./icons";
 import { type CollectionEntry, getEntry } from "astro:content";
-import crea from "../assets/logos/logoCrea.webp"
-import ftm from "../assets/logos/ftm_dark.webp"
-import ft from "../assets/logos/fault_tolerance_edit.webp"
-import f2x from "../assets/logos/free_to_x_logo.webp"
+import crea from "../assets/logos/logoCrea.webp";
+import ftm from "../assets/logos/ftm_dark.webp";
+import ft from "../assets/logos/fault_tolerance_edit.webp";
+import f2x from "../assets/logos/free_to_x_logo.webp";
 import { Image } from "astro:assets";
 //free_to_x_logo
 
@@ -18,13 +18,28 @@ const i18n = await getEntry("i18n", i18nId);
 const { hero } = i18n.data;
 ---
 
-<div class="container mx-auto p-4 my-16 flex flex-col lg:flex-row items-center justify-center gap-8">
-  <p class="max-w-[214px] text-xl font-light text-slate-700/60">Used By Companies Around Globe:</p>
-  <div class="grid grid-cols-2 lg:flex flex-row items-center justify-center gap-8">
-    
-    <Image src={crea} alt="Crea Assicurazioni Spa" height={36} class={"h-9 w-auto"} />
+<div
+  class="container mx-auto p-4 my-16 flex flex-col lg:flex-row items-center justify-center gap-8"
+>
+  <p class="max-w-[214px] text-xl font-light text-slate-700/60">
+    Used By Companies Around Globe:
+  </p>
+  <div
+    class="grid grid-cols-2 lg:flex flex-row items-center justify-center gap-8"
+  >
+    <Image
+      src={crea}
+      alt="Crea Assicurazioni Spa"
+      height={36}
+      class={"h-9 w-auto"}
+    />
     <Image src={ftm} alt="FTM Group srl" height={36} class={"h-9 w-auto"} />
     <Image src={f2x} alt="Free To X" height={36} class={"h-9 w-auto"} />
-    <Image src={ft} alt="Fault Tolerance srl" height={36} class={"h-9 w-auto brightness-[99999] invert"} />
+    <Image
+      src={ft}
+      alt="Fault Tolerance srl"
+      height={36}
+      class={"h-9 w-auto brightness-[99999] invert"}
+    />
   </div>
 </div>

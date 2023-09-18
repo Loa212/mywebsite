@@ -36,8 +36,8 @@ const servicesCollection = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
-    subtitle: z.string(),
-    icon: z.string(),
+    description: z.string(),
+    id: z.string(),
   }),
 });
 

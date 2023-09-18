@@ -1,6 +1,6 @@
 ---
 import { BackdropShape } from ".";
-import {ArrowRight} from "./icons"
+import { ArrowRight } from "./icons";
 import { type CollectionEntry, getEntry } from "astro:content";
 
 export interface Props {
@@ -13,25 +13,33 @@ const i18n = await getEntry("i18n", i18nId);
 const { hero } = i18n.data;
 ---
 
-<div class="relative grow h-full min-h-[60vh] flex flex-col items-center justify-center">
+<div
+  class="relative grow h-full min-h-[60vh] flex flex-col items-center justify-center"
+>
   <!-- background -->
-  <BackdropShape/>
+  <BackdropShape />
 
   <!-- content -->
   <div class="text-center space-y-8 max-w-3xl p-4 lg:p-0">
-    <h1 class="text-base-content text-6xl lg:text-8xl font-bold">Digital Agency</h1>
+    <h1 class="text-base-content text-6xl lg:text-8xl font-bold">
+      Digital Agency
+    </h1>
     <p class="text-xl lg:text-2xl">
-      We design and develop custom websites that are tailored to your specific needs and requirements.
+      We design and develop custom websites that are tailored to your specific
+      needs and requirements.
     </p>
 
-
-    <a href="#" class="btn lg:btn-lg btn-primary bg-opacity-80 border-0 text-white anim">
+    <a
+      href="#"
+      class="btn lg:btn-lg btn-primary bg-opacity-80 border-0 text-white anim"
+    >
       Get started
-      <div id="arrow" class="animate-shake animate-twice animate-duration-500 animate-delay-1000 animate-ease-linear animate-normal">
-        <ArrowRight/>
+      <div
+        id="arrow"
+        class="animate-shake animate-twice animate-duration-500 animate-delay-1000 animate-ease-linear animate-normal"
+      >
+        <ArrowRight />
       </div>
     </a>
   </div>
 </div>
-
-
