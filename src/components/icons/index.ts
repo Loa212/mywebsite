@@ -5,6 +5,10 @@ import ArrowRight from "./arrow-right.astro";
 import ArrowLeft from "./arrow-left.astro";
 import Globe from "./globe.astro";
 import WebDev from "./web-dev.astro";
+import Instagram from "./instagram.astro";
+import Linkedin from "./linkedin.astro";
+import Whatsapp from "./whatsapp.astro";
+import Telegram from "./telegram.astro";
 
 export {
   ChevronDown,
@@ -14,5 +18,9 @@ export {
   ArrowLeft,
   Globe,
   WebDev,
+  Instagram,
+  Linkedin,
+  Whatsapp,
+  Telegram,
   // ... other icons
 };
