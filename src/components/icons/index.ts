@@ -9,6 +9,7 @@ import Instagram from "./instagram.astro";
 import Linkedin from "./linkedin.astro";
 import Whatsapp from "./whatsapp.astro";
 import Telegram from "./telegram.astro";
+import ArrowCircleUp from "./arrow-circle-up.astro";
 
 export {
   ChevronDown,
@@ -22,5 +23,6 @@ export {
   Linkedin,
   Whatsapp,
   Telegram,
+  ArrowCircleUp,
   // ... other icons
 };

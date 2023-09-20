@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import Navbar from "./Navbar.astro";
+import { ScrollTop } from ".";
 
 export interface Props {
   i18nId: CollectionEntry<"i18n">["id"];
@@ -10,9 +11,11 @@ const { i18nId } = Astro.props;
 ---
 
 <div class="drawer">
+  <span id="top"></span>
   <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
   <div class="drawer-content flex flex-col min-h-screen">
     <Navbar i18nId={i18nId} />
+    <ScrollTop />
     <!-- Page content here -->
     <slot />
   </div>
