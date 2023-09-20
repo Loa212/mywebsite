@@ -24,6 +24,9 @@ const i18nCollection = defineCollection({
       subtitle: z.string(),
       cta: z.string(),
     }),
+    used_by: z.object({
+      title: z.string(),
+    }),
     services: z.object({
       title: z.string(),
       subtitle: z.string(),
