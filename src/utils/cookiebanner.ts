@@ -98,6 +98,9 @@ function main() {
       // Show the smaller banner at the bottom left corner
       showSmallerCookieBanner();
     }
+  } else {
+    // Show the main cookie banner
+    showMainCookieBanner();
   }
 
   // ------------------ Event listeners & helpers ------------------
