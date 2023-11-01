@@ -10,8 +10,10 @@ import Linkedin from "./linkedin.astro";
 import Whatsapp from "./whatsapp.astro";
 import Telegram from "./telegram.astro";
 import ArrowCircleUp from "./arrow-circle-up.astro";
+import Home from "./home.astro";
 
 export {
+  Home,
   ChevronDown,
   Languages,
   Check,

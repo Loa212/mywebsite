@@ -22,18 +22,17 @@ const { hero } = i18n.data;
   <!-- content -->
   <div class="text-center space-y-8 max-w-3xl p-4 lg:p-0">
     <h1 class="text-base-content text-6xl lg:text-8xl font-bold">
-      Digital Agency
+      {hero.title}
     </h1>
     <p class="text-xl lg:text-2xl">
-      We design and develop custom websites that are tailored to your specific
-      needs and requirements.
+      {hero.subtitle}
     </p>
 
     <a
       href="#"
       class="btn lg:btn-lg btn-primary bg-opacity-80 border-0 text-white anim"
     >
-      Get started
+      {hero.cta}
       <div
         id="arrow"
         class="animate-shake animate-twice animate-duration-500 animate-delay-1000 animate-ease-linear animate-normal"

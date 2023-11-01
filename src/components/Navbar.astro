@@ -8,8 +8,6 @@ export interface Props {
 }
 
 const { i18nId } = Astro.props;
-
-const blogPosts = await getCollection("blog");
 ---
 
 <div id="navbar" class="navbar fixed top-0 z-50">
@@ -29,7 +27,9 @@ const blogPosts = await getCollection("blog");
         >
       </label>
     </div>
-    <a class="btn btn-ghost normal-case text-3xl text-primary font-bold"
+    <a
+      href="/"
+      class="btn btn-ghost normal-case text-3xl text-primary font-bold"
       >Loa212</a
     >
   </div>

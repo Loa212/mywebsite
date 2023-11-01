@@ -1,13 +1,19 @@
 ---
 // Component Imports
-import { Services, Hero } from "@components";
+import {
+  Services,
+  Hero,
+  Portfolio,
+  Testimonials,
+  Pricing,
+  BottomCta,
+  Footer,
+} from "@components";
 import Main from "~/layouts/main.astro";
 import I18n from "./i18n";
 import { SITE_TITLE } from "~/constants";
-import Portfolio from "~/components/Portfolio.astro";
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
+import UsedBy from "~/components/UsedBy.astro";
+import Stats from "~/components/Stats.astro";
 ---
 
 <html lang="it">
@@ -19,10 +25,17 @@ import Portfolio from "~/components/Portfolio.astro";
     <title>Loa212</title>
   </head>
 
-  <Main i18nId={I18n} title={SITE_TITLE}>
+  <Main title={SITE_TITLE} i18nId={I18n}>
     <Hero i18nId={I18n} />
+    <!-- <Mockup  /> -->
+    <UsedBy i18nId={I18n} />
+    <Stats i18nId={I18n} />
     <Services i18nId={I18n} />
+    <Testimonials i18nId={I18n} />
+    <Pricing i18nId={I18n} />
     <Portfolio i18nId={I18n} />
+    <BottomCta i18nId={I18n} />
+    <Footer i18nId={I18n} />
   </Main>
 
 

@@ -12,12 +12,8 @@ import {
 import Main from "~/layouts/main.astro";
 import I18n from "./i18n";
 import { SITE_TITLE } from "~/constants";
-import Mockup from "~/components/Mockup.astro";
 import UsedBy from "~/components/UsedBy.astro";
 import Stats from "~/components/Stats.astro";
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
 ---
 
 <html lang="en">
@@ -41,5 +37,6 @@ import Stats from "~/components/Stats.astro";
     <BottomCta i18nId={I18n} />
     <Footer i18nId={I18n} />
   </Main>
+
 
 </html>
