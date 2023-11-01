@@ -4,9 +4,11 @@ export interface Props {
 }
 
 const { size = 24 } = Astro.props;
+//filter: brightness(0) invert(1);
 ---
 
 <svg
+  style="filter: brightness(0) invert(1);"
   xmlns="http://www.w3.org/2000/svg"
   width={size}
   height={size}

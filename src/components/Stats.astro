@@ -1,22 +1,31 @@
 ---
+import { getEntry, type CollectionEntry } from "astro:content";
 
+export interface Props {
+  i18nId: CollectionEntry<"i18n">["id"];
+}
+
+const { i18nId } = Astro.props;
+
+const i18n = await getEntry("i18n", i18nId);
+const { stats } = i18n.data;
 ---
 
 <section class="w-full bg-card">
   <div class="container mx-auto h-full max-w-4xl py-20">
-    <h2>Loa212 is the most popular digital agency for web development</h2>
+    <h2>{stats.title}</h2>
     <div class="grid grid-cols-3 gap-8 mt-16">
       <div class="flex flex-col items-center justify-center gap-2">
         <h3 class="stat-title">160+</h3>
-        <p class="text-sm text-center lg:text-base">Successful Projects</p>
+        <p class="text-sm text-center lg:text-base">{stats.success}</p>
       </div>
       <div class="flex flex-col items-center justify-center gap-2">
         <h3 class="stat-title">100+</h3>
-        <p class="text-sm text-center lg:text-base">Satisfied Customers</p>
+        <p class="text-sm text-center lg:text-base">{stats.satisfy}</p>
       </div>
       <div class="flex flex-col items-center justify-center gap-2">
         <h3 class="stat-title">6+</h3>
-        <p class="text-sm text-center lg:text-base">Years of experience</p>
+        <p class="text-sm text-center lg:text-base">{stats.experience}</p>
       </div>
     </div>
   </div>

@@ -24,6 +24,12 @@ const i18nCollection = defineCollection({
       subtitle: z.string(),
       cta: z.string(),
     }),
+    stats: z.object({
+      title: z.string(),
+      success: z.string(),
+      satisfy: z.string(),
+      experience: z.string(),
+    }),
     used_by: z.object({
       title: z.string(),
     }),
