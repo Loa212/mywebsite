@@ -25,5 +25,10 @@
     "title": "Our services",
     "subtitle": "Tailored Solutions for Your Business. We offer a wide range of services to help you grow your business.",
     "cta": "See more"
+  },
+  "mailer": {
+    "missing_fields": "Missing required fields",
+    "success": "Your message was sent successfully! We will contact you as soon as possible.",
+    "error": "There was an error sending the email. Please try again later."
   }
 }

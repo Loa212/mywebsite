@@ -25,5 +25,10 @@
     "title": "I nostri servizi",
     "subtitle": "Soluzioni su misura per la tua attività. Offriamo una vasta gamma di servizi per aiutarti a far crescere la tua attività.",
     "cta": "Scopri di più"
+  },
+  "mailer": {
+    "missing_fields": "Campi obbligatori mancanti",
+    "success": "Il tuo messaggio è stato inviato con successo! Ti contatteremo al più presto.",
+    "error": "Si è verificato un errore nell'invio dell'email. Riprova più tardi."
   }
 }

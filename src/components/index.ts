@@ -15,6 +15,7 @@ import Footer from "./Footer.astro";
 // @ts-expect-error
 import CookiesBanner from "./CookiesBanner.astro";
 import ScrollTop from "./ScrollTop.astro";
+import Contact from "./Contact.astro";
 
 export {
   Button,
@@ -33,5 +34,6 @@ export {
   Footer,
   CookiesBanner,
   ScrollTop,
+  Contact,
   //more...
 };
