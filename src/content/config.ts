@@ -38,6 +38,14 @@ const i18nCollection = defineCollection({
       subtitle: z.string(),
       cta: z.string(),
     }),
+    contact: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      name: z.string(),
+      email: z.string(),
+      message: z.string(),
+      cta: z.string(),
+    }),
     mailer: z.object({
       missing_fields: z.string(),
       success: z.string(),

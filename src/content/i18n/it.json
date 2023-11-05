@@ -26,6 +26,14 @@
     "subtitle": "Soluzioni su misura per la tua attività. Offriamo una vasta gamma di servizi per aiutarti a far crescere la tua attività.",
     "cta": "Scopri di più"
   },
+  "contact": {
+    "title": "Contattaci",
+    "subtitle": "Invia un messaggio e ti risponderemo al più presto.",
+    "name": "Nome",
+    "email": "Email",
+    "message": "Messaggio",
+    "cta": "Invia messaggio"
+  },
   "mailer": {
     "missing_fields": "Campi obbligatori mancanti",
     "success": "Il tuo messaggio è stato inviato con successo! Ti contatteremo al più presto.",

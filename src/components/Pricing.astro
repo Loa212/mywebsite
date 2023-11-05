@@ -1,9 +1,14 @@
 ---
 import { Check } from "./icons";
+
+const starter_monthly_link = import.meta.env.STARTER_MONTHLY;
+const starter_yearly_link = import.meta.env.STARTER_YEARLY;
+const premium_monthly_link = import.meta.env.PREMIUM_MONTHLY;
+const premium_yearly_link = import.meta.env.PREMIUM_YEARLY;
 ---
 
 <section class="text-gray-600 body-font">
-  <div class="container px-5 py-12 lg:py-24 mx-auto">
+  <div class="container px-5 pb-12 lg:pb-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-20">
       <h1 class="plans-title">Our Plans</h1>
       <p
@@ -75,7 +80,11 @@ import { Check } from "./icons";
               <Check size={12} />
             </span>30 Days money back guarantee
           </p>
-          <button
+          <a
+            aria-label="Starter Yearly Link"
+            id="starter-yearly-link"
+            target="_blank"
+            href={starter_yearly_link}
             class="flex items-center mt-auto text-white bg-gray-500 border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-600 rounded"
             >Get started
             <svg
@@ -89,7 +98,26 @@ import { Check } from "./icons";
             >
               <path d="M5 12h14M12 5l7 7-7 7"></path>
             </svg>
-          </button>
+          </a>
+          <a
+            aria-label="Starter Monthly Link"
+            id="starter-monthly-link"
+            target="_blank"
+            href={starter_monthly_link}
+            class="hidden flex items-center mt-auto text-white bg-gray-500 border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-600 rounded"
+            >Get started
+            <svg
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              class="w-4 h-4 ml-auto"
+              viewBox="0 0 24 24"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
           <p class="text-xs text-gray-500 mt-3 text-center">
             The price rapresents the starting price for the service. The final
             price will be determined after a free consultation.
@@ -156,7 +184,11 @@ import { Check } from "./icons";
              3 months of free maintenance
           </p>
 
-          <button
+          <a
+            aria-label="Premium Yearly Link"
+            id="premium-yearly-link"
+            target="_blank"
+            href={premium_yearly_link}
             class="flex items-center mt-auto text-white bg-blue-600 border-0 py-2 px-4 w-full focus:outline-none hover:bg-blue-700 rounded"
             >Get Started
             <svg
@@ -170,7 +202,26 @@ import { Check } from "./icons";
             >
               <path d="M5 12h14M12 5l7 7-7 7"></path>
             </svg>
-          </button>
+          </a>
+          <a
+            aria-label="Premium Monthly Link"
+            id="premium-monthly-link"
+            target="_blank"
+            href={premium_monthly_link}
+            class="hidden flex items-center mt-auto text-white bg-blue-600 border-0 py-2 px-4 w-full focus:outline-none hover:bg-blue-700 rounded"
+            >Get Started
+            <svg
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              class="w-4 h-4 ml-auto"
+              viewBox="0 0 24 24"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
           <p class="text-xs text-gray-500 mt-3 text-center">
             The price rapresents the starting price for the service. The final
             price will be determined after a free consultation.
@@ -197,7 +248,9 @@ import { Check } from "./icons";
             <br />
              Contact us for a free consultation.
           </p>
-          <button
+          <a
+            aria-label="Contact Us"
+            href="#contact-us"
             class="flex items-center mt-auto text-white bg-gray-500 border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-600 rounded"
             >Contact Us
             <svg
@@ -211,7 +264,7 @@ import { Check } from "./icons";
             >
               <path d="M5 12h14M12 5l7 7-7 7"></path>
             </svg>
-          </button>
+          </a>
           <p class="text-xs text-gray-500 mt-3 text-center">
             After a brief consultation, we will provide you with a custom quote
             for your project.
@@ -240,6 +293,11 @@ import { Check } from "./icons";
   const premiumYearly = document.querySelector(".premium-yearly");
   const enterpriseMonthly = document.querySelector(".enterprise-monthly");
   const enterpriseYearly = document.querySelector(".enterprise-yearly");
+  // links
+  const starterMonthlyLink = document.querySelector("#starter-monthly-link");
+  const starterYearlyLink = document.querySelector("#starter-yearly-link");
+  const premiumMonthlyLink = document.querySelector("#premium-monthly-link");
+  const premiumYearlyLink = document.querySelector("#premium-yearly-link");
 
   const mountPricing = () => {
     // check that toggle is not null
@@ -254,6 +312,11 @@ import { Check } from "./icons";
         premiumYearly?.classList.toggle("hidden");
         enterpriseMonthly?.classList.toggle("hidden");
         enterpriseYearly?.classList.toggle("hidden");
+        // show monthly links
+        starterMonthlyLink?.classList.toggle("hidden");
+        starterYearlyLink?.classList.toggle("hidden");
+        premiumMonthlyLink?.classList.toggle("hidden");
+        premiumYearlyLink?.classList.toggle("hidden");
       } else {
         // if it is not checked, show yearly prices
         starterMonthly?.classList.toggle("hidden");
@@ -262,6 +325,11 @@ import { Check } from "./icons";
         premiumYearly?.classList.toggle("hidden");
         enterpriseMonthly?.classList.toggle("hidden");
         enterpriseYearly?.classList.toggle("hidden");
+        // show yearly links
+        starterMonthlyLink?.classList.toggle("hidden");
+        starterYearlyLink?.classList.toggle("hidden");
+        premiumMonthlyLink?.classList.toggle("hidden");
+        premiumYearlyLink?.classList.toggle("hidden");
       }
     });
   };
