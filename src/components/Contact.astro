@@ -79,6 +79,19 @@ const { contact } = i18n.data;
             <!-- Text will be updated by the script -->
             {contact.cta}
           </button>
+          <div id="recaptcha-banner" class="text-center text-xs mt-2">
+            This site is protected by reCAPTCHA and the Google
+            <a
+              class="link link-primary"
+              href="https://policies.google.com/privacy">Privacy Policy</a
+            > and
+
+            <a
+              class="link link-primary"
+              href="https://policies.google.com/terms">Terms of Service</a
+            >
+             apply.
+          </div>
         </div>
       </form>
 
@@ -161,6 +174,8 @@ const { contact } = i18n.data;
         } finally {
           submitButton.disabled = false;
           submitButton.style.display = "none";
+          // hide the recaptcha banner
+          document.getElementById("recaptcha-banner").style.display = "none";
         }
       });
     });
