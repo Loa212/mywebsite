@@ -1,9 +1,8 @@
 ---
-import { getCollection, getEntry } from "astro:content";
-import type { ContactEmailProps } from "~/mail";
+import { getEntry, type CollectionEntry } from "astro:content";
 
-interface ContactProps {
-  i18nId: string;
+export interface Props {
+  i18nId: CollectionEntry<"i18n">["id"];
 }
 
 const props = Astro.props;
@@ -184,5 +183,4 @@ const { contact } = i18n.data;
 
 <script
   src="https://www.google.com/recaptcha/api.js?render=6LeygvUoAAAAADbGzaWtK8Eu7jVfVXxNJOkwLYA_"
-  async
-  defer></script>
+  async></script>
