@@ -14,6 +14,25 @@ const { i18nId } = Astro.props;
 
 const i18n = await getEntry("i18n", i18nId);
 const { used_by } = i18n.data;
+
+const logosArr = [
+  {
+    src: crea,
+    alt: "Crea Assicurazioni Spa",
+  },
+  {
+    src: ftm,
+    alt: "FTM Group srl",
+  },
+  {
+    src: f2x,
+    alt: "Free To X",
+  },
+  {
+    src: ft,
+    alt: "Fault Tolerance srl",
+  },
+];
 ---
 
 <div
@@ -27,24 +46,16 @@ const { used_by } = i18n.data;
   <div
     class="grid grid-cols-2 lg:flex flex-row items-center justify-center gap-8"
   >
-    <Image
-      src={crea}
-      alt="Crea Assicurazioni Spa"
-      height={36}
-      class={"h-9 w-auto mx-auto"}
-    />
-    <Image
-      src={ftm}
-      alt="FTM Group srl"
-      height={36}
-      class={"h-9 w-auto mx-auto"}
-    />
-    <Image src={f2x} alt="Free To X" height={36} class={"h-9 w-auto mx-auto"} />
-    <Image
-      src={ft}
-      alt="Fault Tolerance srl"
-      height={36}
-      class={"h-9 w-auto mx-auto"}
-    />
+    {
+      logosArr.map(({ src, alt }) => (
+        <Image
+          src={src}
+          alt={alt}
+          height={36}
+          widths={[163, src.width]}
+          class={"h-9 w-auto mx-auto"}
+        />
+      ))
+    }
   </div>
 </div>
