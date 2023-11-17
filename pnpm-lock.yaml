@@ -17,9 +17,6 @@ dependencies:
   '@astrojs/vercel':
     specifier: ^5.1.0
     version: 5.1.0(astro@3.4.2)
-  '@fontsource-variable/open-sans':
-    specifier: ^5.0.18
-    version: 5.0.18
   '@tinacms/cli':
     specifier: ^1.5.31
     version: 1.5.31(@babel/core@7.23.2)(react-dom@18.2.0)(react@18.2.0)
@@ -1325,10 +1322,6 @@ packages:
 
   /@floating-ui/utils@0.1.6:
     resolution: {integrity: sha512-OfX7E2oUDYxtBvsuS4e/jSn4Q9Qb6DzgeYtsAdkPZ47znpoNsMgZw0+tVijiv3uGNR6dgNlty6r9rzIzHjtd/A==}
-    dev: false
-
-  /@fontsource-variable/open-sans@5.0.18:
-    resolution: {integrity: sha512-i75EKP87vin0hBaXNblJrqi7bMgcSStFUbqLVZlPTm+ahlrlSky2IxPZ+S/sj/3N7TIibhrTbokfbkiUPT11QA==}
     dev: false
 
   /@formatjs/ecma402-abstract@1.17.2:
