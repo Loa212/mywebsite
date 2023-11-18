@@ -13,7 +13,6 @@ const { i18nId } = Astro.props;
 <div class="drawer">
   <span id="top"></span>
   <label for="my-drawer-3" class="drawer-toggle label-description">
-    <!-- If you're using an icon, make sure to also include text that screen readers can use -->
     <span class="sr-only">Open navigation</span>
   </label>
   <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
@@ -24,11 +23,28 @@ const { i18nId } = Astro.props;
     <slot />
   </div>
   <div class="drawer-side z-[999]">
-    <label for="my-drawer-3" class="drawer-overlay"></label>
-    <ul class="menu p-4 w-80 min-h-full bg-base-200">
-      <!-- Sidebar content here -->
-      <li><a>Sidebar Item 1</a></li>
-      <li><a>Sidebar Item 2</a></li>
-    </ul>
+    <label for="my-drawer-3" class="drawer-overlay">
+      <span class="sr-only">Close navigation</span>
+    </label>
+    <nav class="p-4 w-80 min-h-full bg-base-200">
+      <ul class="menu">
+        <!-- Sidebar content here -->
+        <li class="nav-link"><a href="#portfolio">Portfolio</a></li>
+        <li class="nav-link"><a href="#services">Services</a></li>
+        <li class="nav-link"><a href="#pricing">Pricing</a></li>
+      </ul>
+    </nav>
   </div>
 </div>
+
+<script>
+  // whenever a .nav-link is clicked, close the drawer
+  document.querySelectorAll(".nav-link").forEach((el) => {
+    if (!el) return;
+    el.addEventListener("click", () => {
+      const checkbox = document.getElementById("my-drawer-3");
+      if (!checkbox || !(checkbox instanceof HTMLInputElement)) return;
+      checkbox.checked = false;
+    });
+  });
+</script>
