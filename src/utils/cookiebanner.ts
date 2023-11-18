@@ -142,7 +142,7 @@ function main() {
 
   // Event listener for "Cookie Preferences" link
   const cookiePrefsLink =
-    document.querySelectorAll<HTMLButtonElement>("#cookiePrefsLink");
+    document.querySelectorAll<HTMLButtonElement>(".cookiePrefsLink");
   cookiePrefsLink.forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();

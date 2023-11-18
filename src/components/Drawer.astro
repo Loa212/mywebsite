@@ -12,6 +12,10 @@ const { i18nId } = Astro.props;
 
 <div class="drawer">
   <span id="top"></span>
+  <label for="my-drawer-3" class="drawer-toggle label-description">
+    <!-- If you're using an icon, make sure to also include text that screen readers can use -->
+    <span class="sr-only">Open navigation</span>
+  </label>
   <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
   <div class="drawer-content flex flex-col min-h-screen">
     <Navbar i18nId={i18nId} />
