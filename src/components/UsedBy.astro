@@ -5,6 +5,7 @@ import ftm from "../assets/logos/ftm_dark.webp";
 import ft from "../assets/logos/fault_tolerance_black.webp";
 import f2x from "../assets/logos/free_to_x_logo.webp";
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 
 export interface Props {
   i18nId: CollectionEntry<"i18n">["id"];
@@ -17,32 +18,41 @@ const { used_by } = i18n.data;
 
 const logosArr = [
   {
+    id: 1,
     src: crea,
     alt: "Crea Assicurazioni Spa",
     hackyMaxWidth: 122.14,
   },
   {
+    id: 2,
     src: ftm,
     alt: "FTM Group srl",
     hackyMaxWidth: 97.71,
   },
   {
+    id: 3,
     src: f2x,
     alt: "Free To X",
     hackyMaxWidth: 134.11,
   },
   {
+    id: 4,
     src: ft,
     alt: "Fault Tolerance srl",
     hackyMaxWidth: 174,
   },
 ];
 
-const limitWidth = (img: any) => {
-  if (img.src.width > img.hackyMaxWidth) {
-    return img.hackyMaxWidth;
+type Logo = (typeof logosArr)[number];
+
+const limitWidth = (
+  src: ImageMetadata,
+  hackyMaxWidth: Logo["hackyMaxWidth"]
+) => {
+  if (src.width > hackyMaxWidth) {
+    return hackyMaxWidth;
   }
-  return img.src.width;
+  return src.width;
 };
 ---
 
@@ -58,12 +68,12 @@ const limitWidth = (img: any) => {
     class="grid grid-cols-2 lg:flex flex-row items-center justify-center gap-8"
   >
     {
-      logosArr.map(({ src, alt }) => (
+      logosArr.map(({ src, alt, hackyMaxWidth }) => (
         <Image
           src={src}
           alt={alt}
           height={36}
-          widths={[limitWidth(src)]}
+          widths={[163, limitWidth(src, hackyMaxWidth)]}
           class={"h-9 w-auto mx-auto"}
         />
       ))
