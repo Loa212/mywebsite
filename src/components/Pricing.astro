@@ -22,8 +22,14 @@ const premium_yearly_link = import.meta.env.PREMIUM_YEARLY;
           <button class="py-1 px-4 focus:outline-none">Annually</button> -->
         <div class="form-control">
           <label class="label cursor-pointer gap-4">
+            <span class="sr-only">Toggle pricing plan</span>
             <span class="label-text">Monthly</span>
-            <input type="checkbox" class="toggle toggle-primary" checked />
+            <input
+              id="toggle-pricing-plan"
+              type="checkbox"
+              class="toggle toggle-primary"
+              checked
+            />
             <span class="label-text">Yearly</span>
           </label>
         </div>

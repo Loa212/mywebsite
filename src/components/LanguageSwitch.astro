@@ -18,12 +18,12 @@ const currentLang = langs.find((lang) => lang.id === i18nId);
 ---
 
 <div class="dropdown">
-  <label tabindex="0" class="btn ring-1 ring-zinc-600/20 capitalize">
+  <span tabindex="0" class="btn ring-1 ring-zinc-600/20 capitalize">
     <Languages size={18} />
     <span class="hidden md:block">
       {currentLang?.data.displayName}
     </span>
-  </label>
+  </span>
   <ul
     tabindex="0"
     class="dropdown-content dropdown-right z-[1] menu p-2 shadow bg-base-100 rounded-box w-36 ring-1 ring-slate-200/5"

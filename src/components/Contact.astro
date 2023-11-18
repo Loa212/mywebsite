@@ -35,6 +35,7 @@ const { contact } = i18n.data;
               <input
                 required
                 type="text"
+                autocomplete="name"
                 id="name"
                 name="name"
                 placeholder={contact.name}
@@ -50,6 +51,7 @@ const { contact } = i18n.data;
               <input
                 required
                 type="email"
+                autocomplete="email"
                 id="email"
                 name="email"
                 placeholder="example@email.com"
@@ -104,7 +106,7 @@ const { contact } = i18n.data;
       <!-- Response Message -->
       <div id="response-message" style="display:none;" class="alert">
         <div class="flex-1">
-          <label id="response-label"></label>
+          <span id="response-label"></span>
         </div>
       </div>
     </div>

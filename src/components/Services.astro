@@ -38,9 +38,17 @@ const { services } = i18n.data;
           servicesCollection.reverse().map((s, idx) => {
             return (
               <div class="collapse collapse-plus bg-gradient-to-br from-primary/20 to-blue-400/20 ring-1 ring-primary:40 hover:ring-primary">
+                <label
+                  for={`my-drawer-3-${idx}`}
+                  class="drawer-toggle label-description"
+                >
+                  <span class="sr-only">{`open ${s.data.title}`}</span>
+                </label>
+
                 <input
+                  id={`my-drawer-3-${idx}`}
                   type="radio"
-                  name="my-accordion-3"
+                  name="services-accordion"
                   checked={idx === 0}
                   class=""
                 />
