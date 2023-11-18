@@ -38,7 +38,7 @@ const { i18nId } = Astro.props;
   </div> -->
   <div class="navbar-end gap-3">
     <ul class="menu menu-horizontal px-1 hidden lg:flex">
-      <li class="dropdown">
+      <!-- <li class="dropdown">
         <label tabindex="1" class=""
           >Solutions
           <ChevronDown size={18} />
@@ -50,13 +50,13 @@ const { i18nId } = Astro.props;
           <li><a>Item 1</a></li>
           <li><a>Item 2</a></li>
         </ul>
-      </li>
-      <li><a>Portfolio</a></li>
-      <li><a>Testimonials</a></li>
-      <li><a>Pricing</a></li>
+      </li> -->
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#pricing">Pricing</a></li>
     </ul>
     <LanguageSwitch i18nId={i18nId} />
-    <a class="btn btn-primary text-white">contact</a>
+    <a href="#contact-us" class="btn btn-primary text-white">contact</a>
     <!-- <ThemeIcon /> -->
   </div>
 </div>

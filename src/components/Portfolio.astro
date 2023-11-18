@@ -1,7 +1,6 @@
 ---
 import { type CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
-import { ArrowRight } from "./icons";
 import { Image } from "astro:assets";
 
 export interface Props {
@@ -13,7 +12,7 @@ const { i18nId } = Astro.props;
 const portfolioCollection = await getCollection("portfolio");
 ---
 
-<section class="body-font">
+<section id="portfolio" class="body-font">
   <div class="container px-5 pb-24 mx-auto">
     <div class="flex flex-col mb-8 space-y-4">
       <h1 class="title mb-2 sm:mb-0">Portfolio</h1>

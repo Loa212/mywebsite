@@ -15,7 +15,7 @@ const { contact } = i18n.data;
 ---
 
 <section id="contact-us" class="body-font relative">
-  <div class="container relative px-5 pb-12 lg:pb-24 mx-auto">
+  <div class="container relative px-5 pb-12 mx-auto">
     <div class="flex flex-col text-center w-full mb-6">
       <h1 class="title">{contact.title}</h1>
       <p
@@ -80,15 +80,20 @@ const { contact } = i18n.data;
             <!-- Text will be updated by the script -->
             {contact.cta}
           </button>
-          <div id="recaptcha-banner" class="text-center text-xs mt-2">
+          <div
+            id="recaptcha-banner"
+            class="text-center text-xs mt-4 max-w-sm mx-auto"
+          >
             This site is protected by reCAPTCHA and the Google
             <a
               class="link link-primary"
+              target="_blank"
               href="https://policies.google.com/privacy">Privacy Policy</a
             > and
 
             <a
               class="link link-primary"
+              target="_blank"
               href="https://policies.google.com/terms">Terms of Service</a
             >
              apply.
