@@ -1,0 +1,31 @@
+---
+import Main from "~/layouts/main.astro";
+import I18n from "./i18n";
+import { SITE_TITLE } from "~/constants";
+import * as termsOfService from "../assets/markup/terms-of-service.mdx";
+import { BottomCta, Footer } from "~/components";
+
+const Content = termsOfService.Content;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Loa212 | Terms of service</title>
+    <meta name="description" content="Loa212 Terms of service" />
+  </head>
+  <Main title={SITE_TITLE} i18nId={I18n}>
+    <article
+      class="container w-full px-5 pt-24 lg:pt-16 pb-24 mx-auto flex flex-wrap prose prose-a:text-secondary"
+    >
+      <Content />
+    </article>
+    <BottomCta i18nId={I18n} />
+    <Footer i18nId={I18n} />
+  </Main>
+
+
+</html>
