@@ -39,17 +39,15 @@ const logosArr = [
   },
 ];
 
-type Logo = (typeof logosArr)[number];
+// type Logo = (typeof logosArr)[number];
 
-const limitWidth = (
-  src: ImageMetadata,
-  hackyMaxWidth: Logo["hackyMaxWidth"]
-) => {
-  if (src.width > hackyMaxWidth) {
-    return hackyMaxWidth;
-  }
-  return src.width;
-};
+// const limitWidth = (
+//   src: ImageMetadata,
+//   hackyMaxWidth: Logo["hackyMaxWidth"]
+// ) => {
+//   const maxWidth = parseInt(hackyMaxWidth, 10);
+//   return srcWidth > maxWidth ? maxWidth : srcWidth;
+// };
 ---
 
 <div
@@ -69,7 +67,7 @@ const limitWidth = (
           src={src}
           alt={alt}
           height={36}
-          widths={[163, limitWidth(src, hackyMaxWidth)]}
+          widths={[163, hackyMaxWidth]}
           class={"h-9 w-auto mx-auto"}
         />
       ))
