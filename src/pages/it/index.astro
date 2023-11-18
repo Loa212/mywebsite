@@ -15,6 +15,7 @@ import I18n from "./i18n";
 import { SITE_TITLE } from "~/constants";
 import UsedBy from "~/components/UsedBy.astro";
 import Stats from "~/components/Stats.astro";
+const RECAPTCHA_SITE_KEY = import.meta.env.RECAPTCHA_SITE_KEY;
 ---
 
 <html lang="it">
@@ -34,11 +35,41 @@ import Stats from "~/components/Stats.astro";
     <Services i18nId={I18n} />
     <Testimonials i18nId={I18n} />
     <Pricing i18nId={I18n} />
-    <Contact i18nId={I18n} />
+    <Contact i18nId={I18n} siteKey={RECAPTCHA_SITE_KEY} />
     <Portfolio i18nId={I18n} />
     <BottomCta i18nId={I18n} />
     <Footer i18nId={I18n} />
   </Main>
 
+  <script define:vars={{ RECAPTCHA_SITE_KEY: RECAPTCHA_SITE_KEY }}>
+    document.addEventListener("DOMContentLoaded", () => {
+      const contactForm = document.getElementById("contact-us");
+      if (!contactForm) {
+        console.error("Contact form not found");
+        return;
+      }
 
+      const observer = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Load reCAPTCHA script dynamically
+              const script = document.createElement("script");
+              script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
+              script.onload = () => {
+                document.dispatchEvent(new Event("recaptchaLoaded"));
+              };
+              document.head.appendChild(script);
+
+              // Stop observing after loading the script
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.5 }
+      ); // Adjust threshold as needed
+
+      observer.observe(contactForm);
+    });
+  </script>
 </html>

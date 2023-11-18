@@ -1,12 +1,14 @@
 ---
+// Contact.astro
 import { getEntry, type CollectionEntry } from "astro:content";
 
 export interface Props {
   i18nId: CollectionEntry<"i18n">["id"];
+  siteKey: string;
 }
 
 const props = Astro.props;
-const { i18nId } = props;
+const { i18nId, siteKey } = props;
 
 const i18n = await getEntry("i18n", i18nId);
 const { contact } = i18n.data;
@@ -115,72 +117,76 @@ const { contact } = i18n.data;
   }
 </style>
 
-<script type="text/javascript">
-  window.addEventListener("DOMContentLoaded", (event) => {
+<script define:vars={{ siteKey }}>
+  function initializeForm() {
     const form = document.getElementById("contact-form");
+    if (!(form instanceof HTMLFormElement)) {
+      console.error("Contact form not found");
+      return;
+    }
     const responseMessageDiv = document.getElementById("response-message");
     const responseLabel = document.getElementById("response-label");
     const submitButton = form.querySelector('button[type="submit"]');
 
-    if (!(form instanceof HTMLFormElement)) throw new Error("Form not found");
-    if (!(responseMessageDiv instanceof HTMLElement))
-      throw new Error("Response message div not found");
-    if (!(responseLabel instanceof HTMLElement))
-      throw new Error("Response label not found");
-    if (!(submitButton instanceof HTMLButtonElement))
-      throw new Error("Submit button not found");
+    if (
+      !(responseMessageDiv instanceof HTMLElement) ||
+      !(responseLabel instanceof HTMLElement) ||
+      !(submitButton instanceof HTMLButtonElement)
+    ) {
+      console.error("Required elements not found in the form");
+      return;
+    }
 
     form.addEventListener("submit", async function (event) {
       event.preventDefault();
-      const formData = new FormData(form);
-      formData.append("i18n", "en"); // Example value for i18n
 
-      // Here we integrate reCAPTCHA
-      grecaptcha.ready(async () => {
-        try {
-          submitButton.disabled = true;
-          submitButton.textContent = "Sending...";
+      if (typeof grecaptcha === "undefined") {
+        console.error("reCAPTCHA not loaded");
+        return;
+      }
 
-          const token = await grecaptcha.execute(
-            "6LeygvUoAAAAADbGzaWtK8Eu7jVfVXxNJOkwLYA_",
-            {
-              action: "submit",
-            }
-          );
-          formData.append("g-recaptcha-response", token);
+      try {
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
 
-          const response = await fetch("/api/mailer", {
-            method: "POST",
-            body: formData,
-          });
+        const token = await grecaptcha.execute(siteKey, { action: "submit" });
+        const formData = new FormData(form);
+        formData.append("g-recaptcha-response", token);
+        formData.append("i18n", "en"); // Example value for i18n
 
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
+        const response = await fetch("/api/mailer", {
+          method: "POST",
+          body: formData,
+        });
 
-          const data = await response.json();
-
-          responseMessageDiv.style.display = "block";
-          responseMessageDiv.classList.add("alert-success");
-          responseMessageDiv.classList.remove("alert-error");
-          responseLabel.textContent = data.message;
-        } catch (error) {
-          responseMessageDiv.style.display = "block";
-          responseMessageDiv.classList.add("alert-error");
-          responseMessageDiv.classList.remove("alert-success");
-          responseLabel.textContent =
-            error instanceof Error ? error.message : "An error occurred";
-        } finally {
-          submitButton.disabled = false;
-          submitButton.style.display = "none";
-          // hide the recaptcha banner
-          document.getElementById("recaptcha-banner").style.display = "none";
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
-      });
-    });
-  });
-</script>
 
-<script
-  src="https://www.google.com/recaptcha/api.js?render=6LeygvUoAAAAADbGzaWtK8Eu7jVfVXxNJOkwLYA_"
-  async></script>
+        const data = await response.json();
+
+        responseMessageDiv.style.display = "block";
+        responseMessageDiv.classList.add("alert-success");
+        responseMessageDiv.classList.remove("alert-error");
+        responseLabel.textContent = data.message;
+      } catch (error) {
+        responseMessageDiv.style.display = "block";
+        responseMessageDiv.classList.add("alert-error");
+        responseMessageDiv.classList.remove("alert-success");
+        responseLabel.textContent =
+          error instanceof Error ? error.message : "An error occurred";
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = contact.cta;
+      }
+    });
+  }
+
+  // Listen for the reCAPTCHA script to load
+  document.addEventListener("recaptchaLoaded", initializeForm);
+
+  // Initialize immediately if reCAPTCHA is already loaded
+  if (typeof grecaptcha !== "undefined") {
+    initializeForm();
+  }
+</script>
