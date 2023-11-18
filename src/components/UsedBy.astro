@@ -19,26 +19,30 @@ const logosArr = [
   {
     src: crea,
     alt: "Crea Assicurazioni Spa",
+    hackyMaxWidth: 122.14,
   },
   {
     src: ftm,
     alt: "FTM Group srl",
+    hackyMaxWidth: 97.71,
   },
   {
     src: f2x,
     alt: "Free To X",
+    hackyMaxWidth: 134.11,
   },
   {
     src: ft,
     alt: "Fault Tolerance srl",
+    hackyMaxWidth: 174,
   },
 ];
 
-const limitWidth = (width: number, limit: number) => {
-  if (width > limit) {
-    return limit;
+const limitWidth = (img: any) => {
+  if (img.src.width > img.hackyMaxWidth) {
+    return img.hackyMaxWidth;
   }
-  return width;
+  return img.src.width;
 };
 ---
 
@@ -59,7 +63,7 @@ const limitWidth = (width: number, limit: number) => {
           src={src}
           alt={alt}
           height={36}
-          widths={[163, limitWidth(src.width, 190)]}
+          widths={[163, limitWidth(src)]}
           class={"h-9 w-auto mx-auto"}
         />
       ))
