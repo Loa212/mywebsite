@@ -33,6 +33,13 @@ const logosArr = [
     alt: "Fault Tolerance srl",
   },
 ];
+
+const limitWidth = (width: number, limit: number) => {
+  if (width > limit) {
+    return limit;
+  }
+  return width;
+};
 ---
 
 <div
@@ -52,7 +59,7 @@ const logosArr = [
           src={src}
           alt={alt}
           height={36}
-          widths={[163, src.width]}
+          widths={[163, limitWidth(src.width, 190)]}
           class={"h-9 w-auto mx-auto"}
         />
       ))
