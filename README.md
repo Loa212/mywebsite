@@ -1,5 +1,11 @@
 # Loa212.com website
 
+to install dependencies:
+
+```
+pnpm i
+```
+
 to run locally:
 
 ```
