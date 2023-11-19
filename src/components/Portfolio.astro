@@ -33,7 +33,13 @@ const portfolioCollection = await getCollection("portfolio");
             class="card rounded-md bg-base-100 text-dark shadow-xl hover:ring-1 ring-white"
           >
             <figure transition:name={"client-screen-" + slug}>
-              <Image src={data.hero} alt="Shoes" />
+              <Image
+                height={240}
+                widths={[180, data.hero.width]}
+                src={data.hero}
+                alt={data.title}
+                class={"max-h-[240px] object-cover w-full"}
+              />
             </figure>
             <div class="card-body">
               <h2 transition:name={"title" + slug} class="card-title">
