@@ -15,7 +15,7 @@ type Props = CollectionEntry<"portfolio">;
 
 const client = Astro.props;
 const slug = client.slug;
-const { date, description, hero, images, title, url } = client.data;
+const { description, hero, images, title, url } = client.data;
 const { Content } = await client.render();
 ---
 
@@ -43,7 +43,6 @@ const { Content } = await client.render();
       >
         <div class="flex flex-col mb-10 lg:items-start items-center">
           <div
-            transition:animate="slide"
             class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-5"
           >
             <svg
@@ -59,18 +58,14 @@ const { Content } = await client.render();
             </svg>
           </div>
           <div class="flex-grow">
-            <h2
-              transition:animate="slide"
-              class="text-lg title-font font-medium mb-3"
-            >
+            <h2 class="text-lg title-font font-medium mb-3">
               {title}
             </h2>
-            <p transition:animate="slide" class="leading-relaxed text-base">
+            <p class="leading-relaxed text-base">
               {description}
             </p>
             <div class="flex items-center justify-start mt-4">
               <a
-                transition:animate="slide"
                 href={url}
                 target="_blank"
                 class="btn btn-primary ring-1 ring-white/20"
@@ -82,11 +77,7 @@ const { Content } = await client.render();
             <div class="grid grid-cols-3 gap-3 mt-4">
               {
                 images.map((image) => (
-                  <Image
-                    alt=""
-                    transition:animate="slide"
-                    src={image as ImageMetadata}
-                  />
+                  <Image alt="" src={image as ImageMetadata} />
                 ))
               }
             </div>
@@ -96,7 +87,6 @@ const { Content } = await client.render();
     </div>
   </section>
   <article
-    transition:animate="slide"
     class="container w-full px-5 pt-8 pb-24 mx-auto flex flex-wrap prose prose-a:text-secondary"
   >
     <Content />
