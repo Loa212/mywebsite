@@ -27,11 +27,27 @@ const { i18nId } = Astro.props;
       <span class="sr-only">Close navigation</span>
     </label>
     <nav class="p-4 w-80 min-h-full bg-base-200">
-      <ul class="menu">
+      <ul class="flex flex-col justify-start items-start h-full space-y-6">
         <!-- Sidebar content here -->
-        <li class="nav-link"><a href="#portfolio">Portfolio</a></li>
-        <li class="nav-link"><a href="#services">Services</a></li>
-        <li class="nav-link"><a href="#pricing">Pricing</a></li>
+        <li class="w-full text-end">
+          <label for="my-drawer-3" class="drawer-overlay">
+            <span class="sr-only">Close navigation</span>
+            <span class="btn btn-square btn-outline">X</span>
+          </label>
+        </li>
+        <!-- Links here -->
+        <a class="nav-link w-full btn btn-outline" href="/#contact-us">
+          <li>Contact us</li>
+        </a>
+        <a class="nav-link w-full btn btn-outline" href="/#portfolio">
+          <li>Portfolio</li>
+        </a>
+        <a class="nav-link w-full btn btn-outline" href="/#services">
+          <li>Services</li>
+        </a>
+        <a class="nav-link w-full btn btn-outline" href="/#pricing">
+          <li>Pricing</li>
+        </a>
       </ul>
     </nav>
   </div>
