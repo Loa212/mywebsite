@@ -1,13 +1,16 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
-import { ChevronDown } from "./icons";
+import { type CollectionEntry, getEntry } from "astro:content";
 import { LanguageSwitch } from ".";
+import NavigationLinks from "./NavigationLinks.astro";
 
 export interface Props {
   i18nId: CollectionEntry<"i18n">["id"];
 }
 
 const { i18nId } = Astro.props;
+
+const i18n = await getEntry("i18n", i18nId);
+const { navbar } = i18n.data;
 ---
 
 <div id="navbar" class="navbar fixed top-0 z-50">
@@ -33,31 +36,13 @@ const { i18nId } = Astro.props;
       >Loa212</a
     >
   </div>
-  <!-- <div class="navbar-center hidden lg:flex">
-    
-  </div> -->
   <div class="navbar-end gap-3">
     <ul class="menu menu-horizontal px-1 hidden lg:flex">
-      <!-- <li class="dropdown">
-        <label tabindex="1" class=""
-          >Solutions
-          <ChevronDown size={18} />
-        </label>
-        <ul
-          tabindex="1"
-          class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-        >
-          <li><a>Item 1</a></li>
-          <li><a>Item 2</a></li>
-        </ul>
-      </li> -->
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#pricing">Pricing</a></li>
+      <NavigationLinks i18nId={i18nId} />
     </ul>
     <LanguageSwitch i18nId={i18nId} />
-    <a href="#contact-us" class="btn btn-primary text-white">contact</a>
-    <!-- <ThemeIcon /> -->
+    <a href="#contact-us" class="btn btn-primary text-white">{navbar.contact}</a
+    >
   </div>
 </div>
 

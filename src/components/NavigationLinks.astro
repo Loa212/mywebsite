@@ -1,0 +1,39 @@
+---
+import { type CollectionEntry, getEntry } from "astro:content";
+
+export interface Props {
+  i18nId: CollectionEntry<"i18n">["id"];
+}
+
+const { i18nId } = Astro.props;
+
+const i18n = await getEntry("i18n", i18nId);
+const { navbar } = i18n.data;
+---
+
+<!-- MOBILE -->
+<li class="w-full lg:hidden">
+  <a class="nav-link w-full btn btn-outline" href="/#services"
+    >{navbar.services}</a
+  >
+</li>
+<li class="w-full lg:hidden">
+  <a class="nav-link w-full btn btn-outline" href="/#pricing"
+    >{navbar.pricing}</a
+  >
+</li>
+<li class="w-full lg:hidden">
+  <a class="nav-link w-full btn btn-outline" href="/#contact-us"
+    >{navbar.contact}</a
+  >
+</li>
+<li class="w-full lg:hidden">
+  <a class="nav-link w-full btn btn-outline" href="/#portfolio"
+    >{navbar.portfolio}</a
+  >
+</li>
+
+<!-- DESKTOP -->
+<li class="hidden lg:block"><a href="/#services">{navbar.services}</a></li>
+<li class="hidden lg:block"><a href="/#pricing">{navbar.pricing}</a></li>
+<li class="hidden lg:block"><a href="/#portfolio">{navbar.portfolio}</a></li>

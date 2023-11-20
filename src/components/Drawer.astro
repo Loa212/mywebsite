@@ -2,6 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import Navbar from "./Navbar.astro";
 import { ScrollTop } from ".";
+import NavigationLinks from "./NavigationLinks.astro";
 
 export interface Props {
   i18nId: CollectionEntry<"i18n">["id"];
@@ -36,25 +37,7 @@ const { i18nId } = Astro.props;
           </label>
         </li>
         <!-- Links here -->
-        <li class="w-full">
-          <a class="nav-link w-full btn btn-outline" href="/#contact-us">
-            Contact us</a
-          >
-        </li>
-        <li class="w-full">
-          <a class="nav-link w-full btn btn-outline" href="/#portfolio"
-            >Portfolio</a
-          >
-        </li>
-        <li class="w-full">
-          <a class="nav-link w-full btn btn-outline" href="/#services"
-            >Services</a
-          >
-        </li>
-        <li class="w-full">
-          <a class="nav-link w-full btn btn-outline" href="/#pricing">Pricing</a
-          >
-        </li>
+        <NavigationLinks i18nId={i18nId} />
       </ul>
     </nav>
   </div>

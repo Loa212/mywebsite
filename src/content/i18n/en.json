@@ -38,5 +38,11 @@
     "missing_fields": "Missing required fields",
     "success": "Your message was sent successfully! We will contact you as soon as possible.",
     "error": "There was an error sending the email. Please try again later."
+  },
+  "navbar": {
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "pricing": "Pricing",
+    "contact": "Contact us"
   }
 }

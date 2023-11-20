@@ -38,5 +38,11 @@
     "missing_fields": "Campi obbligatori mancanti",
     "success": "Il tuo messaggio è stato inviato con successo! Ti contatteremo al più presto.",
     "error": "Si è verificato un errore nell'invio dell'email. Riprova più tardi."
+  },
+  "navbar": {
+    "services": "Servizi",
+    "portfolio": "Portfolio",
+    "pricing": "Prezzi",
+    "contact": "Contattaci"
   }
 }

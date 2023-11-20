@@ -51,6 +51,12 @@ const i18nCollection = defineCollection({
       success: z.string(),
       error: z.string(),
     }),
+    navbar: z.object({
+      services: z.string(),
+      portfolio: z.string(),
+      pricing: z.string(),
+      contact: z.string(),
+    }),
   }),
 });
 
