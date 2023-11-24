@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { ViewTransitions } from "astro:transitions";
-import { CookiesBanner, Drawer } from "~/components";
+import { CookiesBanner } from "~/components";
 
 export interface Props {
   title: string;
@@ -50,6 +50,8 @@ const { title, i18nId } = Astro.props;
       }
     </style>
 
-    <script is:inline src="/node_modules/preline/dist/preline.js"></script>
+    <script>
+      import "preline/dist/preline.js";
+    </script>
   </body>
 </html>

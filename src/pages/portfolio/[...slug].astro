@@ -3,6 +3,8 @@ import { Image } from "astro:assets";
 import { getCollection, type CollectionEntry } from "astro:content";
 import { ArrowLeft, Globe } from "~/components/icons";
 import Main from "~/layouts/main.astro";
+import i18nId from "../i18nId";
+import { Navbar } from "~/components";
 
 export async function getStaticPaths() {
   const clients = await getCollection("portfolio");
@@ -20,12 +22,14 @@ const { Content } = await client.render();
 ---
 
 <Main title={title} i18nId={"en"}>
-  <div class="container px-5 pt-8 mx-auto flex flex-wrap">
+  <Navbar i18nId={i18nId} />
+
+  <div class="container px-5 pt-12 lg:pt-16 mx-auto flex flex-wrap">
     <button
       onclick="
       history.back()
       "
-      class="btn btn-primary ring-1 ring-white/20 mt-8"
+      class="py-3 mt-8 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none"
     >
       <ArrowLeft size={18} />
        Back home
