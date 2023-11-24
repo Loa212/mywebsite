@@ -20,10 +20,10 @@ const { title, i18nId } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <Drawer i18nId={i18nId}>
-      <CookiesBanner />
-      <slot />
-    </Drawer>
+    <!-- <Drawer i18nId={i18nId}> -->
+    <CookiesBanner />
+    <slot />
+    <!-- </Drawer> -->
     <style is:global>
       @font-face {
         font-family: "Open Sans Variable", sans-serif;
@@ -49,5 +49,7 @@ const { title, i18nId } = Astro.props;
         text-shadow: 1px 0px 0px rgba(0, 0, 0, 0.6);
       }
     </style>
+
+    <script is:inline src="/node_modules/preline/dist/preline.js"></script>
   </body>
 </html>

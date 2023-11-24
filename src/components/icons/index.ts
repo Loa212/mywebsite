@@ -11,8 +11,10 @@ import Whatsapp from "./whatsapp.astro";
 import Telegram from "./telegram.astro";
 import ArrowCircleUp from "./arrow-circle-up.astro";
 import Home from "./home.astro";
+import Menu from "./menu.astro";
 
 export {
+  Menu,
   Home,
   ChevronDown,
   Languages,

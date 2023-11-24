@@ -1,0 +1,88 @@
+---
+import { getCollection } from "astro:content";
+import { Languages } from "./icons";
+import type { CollectionEntry } from "astro:content";
+import { Check } from "./icons";
+import * as Flags from "../assets/flags";
+import { Image } from "astro:assets";
+
+export type Props = {
+  i18nId: CollectionEntry<"i18n">["id"];
+};
+
+const { i18nId } = Astro.props;
+
+const langs = await getCollection("i18n");
+
+const currentLang = langs.find((lang) => lang.id === i18nId);
+---
+
+<div class="hs-dropdown relative inline-flex [--trigger:hover]">
+  <button
+    id="hs-dropdown-hover-event"
+    type="button"
+    class="hs-dropdown-toggle py-2.5 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg text-neutral/80 hover:text-neutral hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+  >
+    <Languages size={18} />
+    <span class="hidden md:block">
+      {currentLang?.data.displayName}
+    </span>
+    <svg
+      class="hs-dropdown-open:rotate-180 w-4 h-4"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+    >
+  </button>
+
+  <div
+    class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-[8rem] bg-white ring-1 ring-neutral/5 shadow-md rounded-lg p-2 mt-2 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
+    aria-labelledby="hs-dropdown-hover-event"
+  >
+    {
+      langs.map((lang) => {
+        return (
+          <button
+            id={lang.id}
+            class="flex w-full items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+          >
+            <Image
+              src={Flags[lang.id]}
+              alt={lang.data.displayName}
+              width={18}
+              height={18}
+            />
+            {lang.data.displayName}
+            {lang.id === i18nId && (
+              <span class="text-slate-500">
+                <Check size={18} />
+              </span>
+            )}
+          </button>
+        );
+      })
+    }
+  </div>
+</div>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const buttons = document.querySelectorAll(".hs-dropdown-menu button");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        if (button.id === "en") {
+          window.location.href = "/";
+        } else {
+          window.location.href = `/${button.id}`;
+        }
+      });
+    });
+  });
+</script>

@@ -30,7 +30,7 @@ const portfolioCollection = await getCollection("portfolio");
         portfolioCollection.map(({ data, id, slug }) => (
           <a
             href={"/portfolio/" + slug}
-            class="card rounded-md bg-base-100 text-dark shadow-xl hover:ring-1 ring-white"
+            class="flex flex-col border shadow-sm rounded-xl hover:ring-1 ring-slate-300 "
           >
             <figure transition:name={"client-screen-" + slug}>
               <Image
@@ -38,19 +38,47 @@ const portfolioCollection = await getCollection("portfolio");
                 widths={[180, data.hero.width]}
                 src={data.hero}
                 alt={data.title}
-                class={"max-h-[240px] object-cover w-full"}
+                class={"object-cover w-full h-auto rounded-t-xl"}
               />
             </figure>
-            <div class="card-body">
-              <h2 transition:name={"title" + slug} class="card-title">
+            <div class="p-4 md:p-5 mb-4">
+              <h3
+                transition:name={"title" + slug}
+                class="text-lg font-bold text-gray-800 "
+              >
                 {data.title}
-              </h2>
-              <p transition:name={"description" + slug}> {data.description}</p>
-              <div class="card-actions justify-end mt-6">
-                <button class="btn btn-primary text-white">Learn more</button>
-              </div>
+              </h3>
+              <p
+                transition:name={"description" + slug}
+                class="mt-1 text-gray-500 "
+              >
+                {data.description}
+              </p>
             </div>
           </a>
+          // <a
+          //   href={"/portfolio/" + slug}
+          //   class="card rounded-md bg-base-100 text-dark shadow-xl hover:ring-1 ring-white"
+          // >
+          //   <figure transition:name={"client-screen-" + slug}>
+          //     <Image
+          //       height={240}
+          //       widths={[180, data.hero.width]}
+          //       src={data.hero}
+          //       alt={data.title}
+          //       class={"max-h-[240px] object-cover w-full"}
+          //     />
+          //   </figure>
+          //   <div class="card-body">
+          //     <h2 transition:name={"title" + slug} class="card-title">
+          //       {data.title}
+          //     </h2>
+          //     <p transition:name={"description" + slug}> {data.description}</p>
+          //     <div class="card-actions justify-end mt-6">
+          //       <button class="btn btn-primary text-white">Learn more</button>
+          //     </div>
+          //   </div>
+          // </a>
         ))
       }
     </div>

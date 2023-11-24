@@ -20,8 +20,8 @@ const { hero } = i18n.data;
   <BackdropShape />
 
   <!-- content -->
-  <div class="text-center space-y-8 max-w-3xl p-4 lg:p-0">
-    <h1 class="text-base-content text-6xl lg:text-8xl font-bold">
+  <div class="text-center space-y-8 max-w-3xl p-4 lg:p-0 text-neutral">
+    <h1 class="drop-shadow-lg text-6xl lg:text-8xl font-bold">
       {hero.title}
     </h1>
     <p class="text-xl lg:text-2xl">
@@ -30,7 +30,7 @@ const { hero } = i18n.data;
 
     <a
       href="/#pricing"
-      class="btn lg:btn-lg btn-primary border-0 text-white shadow-xl"
+      class="py-4 px-6 uppercase inline-flex items-center gap-x-2 font-semibold rounded-md border border-transparent bg-primary text-white hover:bg-blue-700"
     >
       {hero.cta}
       <div

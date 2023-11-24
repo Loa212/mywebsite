@@ -1,0 +1,61 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Navbar from "./Navbar.astro";
+import { BottomCta, Contact, Footer, Hero, Portfolio, Pricing } from ".";
+import UsedBy from "./UsedBy.astro";
+import Stats from "./Stats.astro";
+import Services from "./Services.astro";
+import Pricing2 from "./Pricing2.astro";
+const RECAPTCHA_SITE_KEY = import.meta.env.RECAPTCHA_SITE_KEY;
+
+export interface Props {
+  i18nId: CollectionEntry<"i18n">["id"];
+}
+
+const { i18nId } = Astro.props;
+---
+
+<Navbar i18nId={i18nId} />
+<Hero i18nId={i18nId} />
+
+<UsedBy i18nId={i18nId} />
+<Stats i18nId={i18nId} />
+<Services i18nId={i18nId} />
+
+<Pricing2 i18nId={i18nId} />
+<Contact i18nId={i18nId} siteKey={RECAPTCHA_SITE_KEY} />
+<Portfolio i18nId={i18nId} />
+<BottomCta i18nId={i18nId} />
+<Footer i18nId={i18nId} />
+
+<script define:vars={{ RECAPTCHA_SITE_KEY: RECAPTCHA_SITE_KEY }}>
+  document.addEventListener("astro:page-load", () => {
+    const contactForm = document.getElementById("contact-us");
+    if (!contactForm) {
+      console.error("Contact form not found");
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Load reCAPTCHA script dynamically
+            const script = document.createElement("script");
+            script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
+            script.onload = () => {
+              document.dispatchEvent(new Event("recaptchaLoaded"));
+            };
+            document.head.appendChild(script);
+
+            // Stop observing after loading the script
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    ); // Adjust threshold as needed
+
+    observer.observe(contactForm);
+  });
+</script>
