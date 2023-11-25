@@ -10,7 +10,7 @@ hero: /./src/assets/CREA.png
 images:
   - /./src/assets/CREA.png
   - /./src/assets/faulttolerance.png
-  - /./src/assets/ftm.png
+  - /./src/assets/FTM.png
 ---
 
 ## CREA Assicurazioni - Insurance Software Company
