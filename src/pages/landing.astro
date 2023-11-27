@@ -8,6 +8,7 @@ import {
   BottomCta,
   Footer,
   Contact,
+  PricelessPricing,
 } from "@components";
 import Main from "~/layouts/main.astro";
 import I18n from "./i18n";
@@ -34,7 +35,7 @@ const RECAPTCHA_SITE_KEY = import.meta.env.RECAPTCHA_SITE_KEY;
     <Stats i18nId={I18n} />
     <Services i18nId={I18n} />
 
-    <Pricing i18nId={I18n} />
+    <PricelessPricing i18nId={I18n} />
     <Contact i18nId={I18n} siteKey={RECAPTCHA_SITE_KEY} />
     <Portfolio i18nId={I18n} />
     <BottomCta i18nId={I18n} />
