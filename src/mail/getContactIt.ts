@@ -78,7 +78,7 @@ export default function ContactEmailIta(props: ContactEmailProps) {
                         alt="Vercel"
                         src=${import.meta.env.LOGO_URL}
                         width="119"
-                        height="42"
+                        height="119"
                         style="
                           display: block;
                           outline: none;
