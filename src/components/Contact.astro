@@ -1,6 +1,7 @@
 ---
 // Contact.astro
 import { getEntry, type CollectionEntry } from "astro:content";
+import getHrefPrefix from "../utils/getHrefPrefix";
 
 export interface Props {
   i18nId: CollectionEntry<"i18n">["id"];
@@ -10,11 +11,14 @@ export interface Props {
 const props = Astro.props;
 const { i18nId, siteKey } = props;
 
+const prefix = getHrefPrefix(i18nId) + "/";
+
 const i18n = await getEntry("i18n", i18nId);
 const { contact } = i18n.data;
 ---
 
-<section id="contact-us" class="body-font relative">
+<section class="body-font relative">
+  <span id="contact-us" class="absolute -top-16 lg:-top-52"></span>
   <div class="container relative px-5 pb-12 mx-auto">
     <div class="flex flex-col text-center w-full mb-6">
       <h1 class="title">{contact.title}</h1>
@@ -25,7 +29,7 @@ const { contact } = i18n.data;
       </p>
     </div>
     <div class="lg:w-1/2 md:w-2/3 mx-auto">
-      <form id="contact-form">
+      <form id="contact-form" action="/api/mailer" method="post">
         <div class="flex flex-wrap -m-2">
           <div class="p-2 w-full md:w-1/2">
             <div class="relative">
@@ -59,6 +63,37 @@ const { contact } = i18n.data;
               />
             </div>
           </div>
+
+          <div class="p-2 w-full md:w-1/2">
+            <div class="relative">
+              <label for="businessName" class="leading-7 text-sm text-gray-600">
+                {contact.businessName}
+              </label>
+              <input
+                required
+                type="text"
+                id="businessName"
+                name="businessName"
+                placeholder={contact.businessName}
+                class="w-full bg-gray-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              />
+            </div>
+          </div>
+          <div class="p-2 w-full md:w-1/2">
+            <div class="relative">
+              <label for="website" class="leading-7 text-sm text-gray-600">
+                {contact.website}
+              </label>
+              <input
+                type="text"
+                id="website"
+                name="website"
+                placeholder="www.example.com"
+                class="w-full bg-gray-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              />
+            </div>
+          </div>
+
           <div class="p-2 w-full">
             <div class="relative">
               <label for="message" class="leading-7 text-sm text-gray-600"
@@ -74,6 +109,16 @@ const { contact } = i18n.data;
             </div>
           </div>
         </div>
+
+        <!-- hidden fields for form submission -->
+        <input
+          type="hidden"
+          id="g-recaptcha-response"
+          name="g-recaptcha-response"
+        />
+        <input id="i18nId" type="hidden" name="i18nId" value={i18nId} />
+        <!-- end hidden fields -->
+
         <div class="p-2 w-full text-center">
           <button
             type="submit"
@@ -124,76 +169,107 @@ const { contact } = i18n.data;
   }
 </style>
 
-<script define:vars={{ siteKey }}>
+<script define:vars={{ siteKey, i18nId, contact, prefix }}>
+  // Function to dynamically load the reCAPTCHA script
+  function loadRecaptchaScript() {
+    const script = document.createElement("script");
+    script.src = `https://www.google.com/recaptcha/api.js?render=${siteKey}`;
+    script.async = true;
+    script.defer = true;
+    script.onload = () => {
+      document.dispatchEvent(new Event("recaptchaLoaded"));
+      console.log("reCAPTCHA loaded");
+    };
+    document.head.appendChild(script);
+  }
+
+  // Function to initialize the form submission logic
   function initializeForm() {
     const form = document.getElementById("contact-form");
-    if (!(form instanceof HTMLFormElement)) {
+    if (!form) {
       console.error("Contact form not found");
       return;
     }
-    const responseMessageDiv = document.getElementById("response-message");
-    const responseLabel = document.getElementById("response-label");
-    const submitButton = form.querySelector('button[type="submit"]');
 
-    if (
-      !(responseMessageDiv instanceof HTMLElement) ||
-      !(responseLabel instanceof HTMLElement) ||
-      !(submitButton instanceof HTMLButtonElement)
-    ) {
-      console.error("Required elements not found in the form");
-      return;
-    }
-
+    // Handle form submission
     form.addEventListener("submit", async function (event) {
-      event.preventDefault();
+      event.preventDefault(); // Prevent the default form submission
 
+      // Verify if reCAPTCHA has been loaded
       if (typeof grecaptcha === "undefined") {
-        console.error("reCAPTCHA not loaded");
+        console.error("reCAPTCHA has not loaded yet.");
         return;
       }
 
-      try {
-        submitButton.disabled = true;
-        submitButton.textContent = "Sending...";
+      // Execute reCAPTCHA and get the token
+      grecaptcha.ready(async function () {
+        try {
+          const token = await grecaptcha.execute(siteKey, { action: "submit" });
+          // Append the token to a hidden field in the form
+          const recaptchaResponseInput = document.getElementById(
+            "g-recaptcha-response"
+          );
+          if (recaptchaResponseInput) {
+            recaptchaResponseInput.value = token;
+          } else {
+            // Create a hidden input for the reCAPTCHA response token if it doesn't exist
+            const hiddenInput = document.createElement("input");
+            hiddenInput.type = "hidden";
+            hiddenInput.name = "g-recaptcha-response";
+            hiddenInput.id = "g-recaptcha-response";
+            hiddenInput.value = token;
+            form.appendChild(hiddenInput);
+          }
 
-        const token = await grecaptcha.execute(siteKey, { action: "submit" });
-        const formData = new FormData(form);
-        formData.append("g-recaptcha-response", token);
-        formData.append("i18n", "en"); // Example value for i18n
+          // Use the Fetch API to submit the form data
+          const formData = new FormData(form);
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: formData,
+          });
 
-        const response = await fetch("/api/mailer", {
-          method: "POST",
-          body: formData,
-        });
+          // Handle the server response
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          // redirect to thank you page
+          window.location.href = prefix + "thanks";
+        } catch (error) {
+          console.error("Error submitting form:", error);
+          // Handle errors, display error message, etc.
         }
-
-        const data = await response.json();
-
-        responseMessageDiv.style.display = "block";
-        responseMessageDiv.classList.add("alert-success");
-        responseMessageDiv.classList.remove("alert-error");
-        responseLabel.textContent = data.message;
-      } catch (error) {
-        responseMessageDiv.style.display = "block";
-        responseMessageDiv.classList.add("alert-error");
-        responseMessageDiv.classList.remove("alert-success");
-        responseLabel.textContent =
-          error instanceof Error ? error.message : "An error occurred";
-      } finally {
-        submitButton.disabled = false;
-        submitButton.textContent = contact.cta;
-      }
+      });
     });
   }
 
-  // Listen for the reCAPTCHA script to load
+  // Listen for the reCAPTCHA script to load and then initialize the form
   document.addEventListener("recaptchaLoaded", initializeForm);
 
-  // Initialize immediately if reCAPTCHA is already loaded
-  if (typeof grecaptcha !== "undefined") {
-    initializeForm();
-  }
+  // Observe the form and load the reCAPTCHA script when it becomes visible
+  document.addEventListener("DOMContentLoaded", () => {
+    const contactForm = document.getElementById("contact-form");
+    if (contactForm) {
+      // If the form is already visible, load the reCAPTCHA script immediately
+      if (contactForm.getBoundingClientRect().top < window.innerHeight) {
+        loadRecaptchaScript();
+      } else {
+        // Otherwise, use IntersectionObserver to determine when it becomes visible
+        const observer = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                loadRecaptchaScript();
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.5 }
+        );
+        observer.observe(contactForm);
+      }
+    } else {
+      console.error("Contact form not found");
+    }
+  });
 </script>

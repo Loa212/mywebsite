@@ -8,7 +8,8 @@
       "~/*": ["src/*"],
       "@components": ["src/components/"],
       "@layouts": ["src/layouts/"],
-      "@assets": ["src/assets/"]
+      "@assets": ["src/assets/"],
+      "@landing": ["src/components/landing/"]
       // "@consts": ["src/consts/"],
       // "@utils": ["src/utils/"],
       // "@types": ["src/types/"],

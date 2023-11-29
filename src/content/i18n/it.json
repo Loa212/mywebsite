@@ -31,7 +31,9 @@
     "subtitle": "Invia un messaggio e ti risponderemo al più presto.",
     "name": "Nome",
     "email": "Email",
-    "message": "Messaggio",
+    "businessName": "Nome della tua attività",
+    "website": "Sito web della tua attività (se presente)",
+    "message": "Breve descrizione della tua attività (max 200 caratteri)",
     "cta": "Invia messaggio"
   },
   "mailer": {
@@ -44,5 +46,26 @@
     "portfolio": "Portfolio",
     "pricing": "Prezzi",
     "contact": "Contattaci"
+  },
+  "landingHero": {
+    "title": "Ottieni Gratis il Tuo Sito Web",
+    "subtitle": "Espandi la tua attività online con LoaMedia! Offriamo siti web personalizzati, pronti in pochi giorni e gratuiti. Premi il bottone blu qui sotto e richiedi il tuo sito web gratuito.",
+    "cta": "Scopri di più"
+  },
+  "adCopy": {
+    "title": "🚀 Trasforma la Tua Attività con un Sito Web GRATUITO! 🌟",
+    "t1": "Hai una attività e sogni di espandere la tua presenza online senza spendere una fortuna? Noi di LoaMedia abbiamo la soluzione perfetta per te!",
+    "t2": "👉 Cosa Offriamo? Un sito web personalizzato, creato appositamente per rispondere alle esigenze della tua attività. Il meglio? Puoi vedere e provare GRATIS e senza impegno il tuo sito web personalizzato per la tua attivita'.",
+    "t3": "✅ Come Funziona?",
+    "t4": "Contattaci: Compila il form qui sotto con la tua email.",
+    "t5": "Ricevi il Tuo Sito Web Personalizzato: Entro alcune ore, riceverai via email il tuo sito web, progettato da esperti.",
+    "t6": "Decidi Tu: Se il sito ti piace e pensi possa fare la differenza per la tua attività, ci sarà l'opzione di acquistarlo e modificarlo durante una chiamata con uno dei nostri specialisti. Senza pressioni, decidi tu!",
+    "t7": "🌐 Perché Scegliere Noi?",
+    "t8": "Personalizzazione: Siti web su misura che riflettono l'unicità della tua attività.",
+    "t9": "Velocità: Siti web pronti in pochi giorni.",
+    "t10": "Facilità d'uso: Gestisci il tuo sito con facilità, anche senza competenze tecniche.",
+    "t11": "Supporto Continuo: Un team di esperti sempre a tua disposizione.",
+    "t12": "🔥 Non perdere questa opportunità unica! Compila il form adesso per iniziare il viaggio digitale della tua attività.",
+    "t13": "👇 Lascia la tua email qui sotto:"
   }
 }

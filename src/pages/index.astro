@@ -1,22 +1,9 @@
 ---
-// Component Imports
-import {
-  Services,
-  Hero,
-  Portfolio,
-  Testimonials,
-  Pricing,
-  BottomCta,
-  Footer,
-  BackdropShape,
-  Contact,
-} from "@components";
 import Main from "~/layouts/main.astro";
 import I18n from "./i18n";
 import { SITE_TITLE } from "~/constants";
-import UsedBy from "~/components/UsedBy.astro";
-import Stats from "~/components/Stats.astro";
-const RECAPTCHA_SITE_KEY = import.meta.env.RECAPTCHA_SITE_KEY;
+import Home from "~/components/Home.astro";
+// const RECAPTCHA_SITE_KEY = import.meta.env.RECAPTCHA_SITE_KEY;
 ---
 
 <html lang="en">
@@ -30,20 +17,10 @@ const RECAPTCHA_SITE_KEY = import.meta.env.RECAPTCHA_SITE_KEY;
   </head>
 
   <Main title={SITE_TITLE} i18nId={I18n}>
-    <Hero i18nId={I18n} />
-
-    <UsedBy i18nId={I18n} />
-    <Stats i18nId={I18n} />
-    <Services i18nId={I18n} />
-
-    <Pricing i18nId={I18n} />
-    <Contact i18nId={I18n} siteKey={RECAPTCHA_SITE_KEY} />
-    <Portfolio i18nId={I18n} />
-    <BottomCta i18nId={I18n} />
-    <Footer i18nId={I18n} />
+    <Home i18nId={I18n} />
   </Main>
 
-  <script define:vars={{ RECAPTCHA_SITE_KEY: RECAPTCHA_SITE_KEY }}>
+  <!-- <script define:vars={{ RECAPTCHA_SITE_KEY: RECAPTCHA_SITE_KEY }}>
     document.addEventListener("DOMContentLoaded", () => {
       const contactForm = document.getElementById("contact-us");
       if (!contactForm) {
@@ -73,6 +50,7 @@ const RECAPTCHA_SITE_KEY = import.meta.env.RECAPTCHA_SITE_KEY;
 
       observer.observe(contactForm);
     });
-  </script>
+  </script> -->
+
 
 </html>

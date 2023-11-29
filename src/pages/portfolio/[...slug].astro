@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { getCollection, type CollectionEntry } from "astro:content";
+import { BottomCta, Footer } from "~/components";
 import { ArrowLeft, Globe } from "~/components/icons";
 import Main from "~/layouts/main.astro";
 
@@ -91,4 +92,6 @@ const { Content } = await client.render();
   >
     <Content />
   </article>
+  <BottomCta />
+  <Footer i18nId={"en"} />
 </Main>
