@@ -1,21 +1,9 @@
 ---
-// Component Imports
-import {
-  Services,
-  Hero,
-  Portfolio,
-  Testimonials,
-  Pricing,
-  BottomCta,
-  Footer,
-  Contact,
-} from "@components";
 import Main from "~/layouts/main.astro";
-import I18n from "./i18n";
+import i18n from "./i18n";
 import { SITE_TITLE } from "~/constants";
-import UsedBy from "~/components/UsedBy.astro";
-import Stats from "~/components/Stats.astro";
-const RECAPTCHA_SITE_KEY = import.meta.env.RECAPTCHA_SITE_KEY;
+import Home from "~/components/Home.astro";
+// const RECAPTCHA_SITE_KEY = import.meta.env.RECAPTCHA_SITE_KEY;
 ---
 
 <html lang="it">
@@ -28,23 +16,13 @@ const RECAPTCHA_SITE_KEY = import.meta.env.RECAPTCHA_SITE_KEY;
     <meta name="description" content="Loa212" />
   </head>
 
-  <Main title={SITE_TITLE} i18nId={I18n}>
-    <Hero i18nId={I18n} />
-    <!-- <Mockup  /> -->
-    <UsedBy i18nId={I18n} />
-    <Stats i18nId={I18n} />
-    <Services i18nId={I18n} />
-    <Testimonials i18nId={I18n} />
-    <Pricing i18nId={I18n} />
-    <Contact i18nId={I18n} siteKey={RECAPTCHA_SITE_KEY} />
-    <Portfolio i18nId={I18n} />
-    <BottomCta i18nId={I18n} />
-    <Footer i18nId={I18n} />
+  <Main title={SITE_TITLE} i18nId={i18n}>
+    <Home i18nId={i18n} />
   </Main>
 
-  <script define:vars={{ RECAPTCHA_SITE_KEY: RECAPTCHA_SITE_KEY }}>
+  <!-- <script define:vars={{ RECAPTCHA_SITE_KEY: RECAPTCHA_SITE_KEY }}>
     document.addEventListener("DOMContentLoaded", () => {
-      const contactForm = document.getElementById("contact-us");
+      const contactForm = document.getElementById("contact-form");
       if (!contactForm) {
         console.error("Contact form not found");
         return;
@@ -56,7 +34,7 @@ const RECAPTCHA_SITE_KEY = import.meta.env.RECAPTCHA_SITE_KEY;
             if (entry.isIntersecting) {
               // Load reCAPTCHA script dynamically
               const script = document.createElement("script");
-              script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
+              script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}&onload=RECAPTCHAonloadCallback`;
               script.onload = () => {
                 document.dispatchEvent(new Event("recaptchaLoaded"));
               };
@@ -72,6 +50,7 @@ const RECAPTCHA_SITE_KEY = import.meta.env.RECAPTCHA_SITE_KEY;
 
       observer.observe(contactForm);
     });
-  </script>
+  </script> -->
+
 
 </html>

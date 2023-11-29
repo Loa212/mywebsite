@@ -1,0 +1,69 @@
+---
+import { type CollectionEntry, getEntry } from "astro:content";
+
+export interface Props {
+  i18nId: CollectionEntry<"i18n">["id"];
+}
+
+const { i18nId } = Astro.props;
+
+const i18n = await getEntry("i18n", i18nId);
+const { adCopy } = i18n.data;
+---
+
+<section class="body-font relative">
+  <span id="ad-copy" class="absolute -top-8 lg:-top-24"></span>
+  <div class="container relative px-5 pb-12 mx-auto text-center">
+    <h3 class="text-4xl font-bold mb-6">
+      {adCopy.title}
+    </h3>
+    <div
+      class="mt-4 max-w-2xl mx-auto flex flex-col items-center justify-start gap-6"
+    >
+      <p>
+        {adCopy.t1}
+      </p>
+      <p>
+        {adCopy.t2}
+      </p>
+      <p class="font-bold text-lg">
+        {adCopy.t3}
+      </p>
+      <ul class="space-y-3">
+        <li>
+          {adCopy.t4}
+        </li>
+        <li>
+          {adCopy.t5}
+        </li>
+        <li>
+          {adCopy.t6}
+        </li>
+      </ul>
+      <p class="font-bold text-lg mt-3">
+        {adCopy.t7}
+      </p>
+      <ul>
+        <li>
+          {adCopy.t8}
+        </li>
+        <li>
+          {adCopy.t9}
+        </li>
+        <li>
+          {adCopy.t10}
+        </li>
+        <li>
+          {adCopy.t11}
+        </li>
+      </ul>
+      <p class="font-bold text-lg mt-3">
+        {adCopy.t12}
+      </p>
+
+      <p>
+        {adCopy.t13}
+      </p>
+    </div>
+  </div>
+</section>

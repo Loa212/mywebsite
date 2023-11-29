@@ -1,5 +1,6 @@
 ---
 import { type CollectionEntry, getEntry } from "astro:content";
+import getHrefPrefix from "../utils/getHrefPrefix";
 
 export interface Props {
   i18nId: CollectionEntry<"i18n">["id"];
@@ -9,31 +10,39 @@ const { i18nId } = Astro.props;
 
 const i18n = await getEntry("i18n", i18nId);
 const { navbar } = i18n.data;
+
+const prefix = getHrefPrefix(i18nId);
 ---
 
 <!-- MOBILE -->
 <li class="w-full lg:hidden">
-  <a class="nav-link w-full btn btn-outline" href="/#services"
+  <a class="nav-link w-full btn btn-outline" href={prefix + "#services"}
     >{navbar.services}</a
   >
 </li>
 <li class="w-full lg:hidden">
-  <a class="nav-link w-full btn btn-outline" href="/#pricing"
+  <a class="nav-link w-full btn btn-outline" href={prefix + "#pricing"}
     >{navbar.pricing}</a
   >
 </li>
 <li class="w-full lg:hidden">
-  <a class="nav-link w-full btn btn-outline" href="/#contact-us"
+  <a class="nav-link w-full btn btn-outline" href={prefix + "#contact-us"}
     >{navbar.contact}</a
   >
 </li>
 <li class="w-full lg:hidden">
-  <a class="nav-link w-full btn btn-outline" href="/#portfolio"
+  <a class="nav-link w-full btn btn-outline" href={prefix + "#portfolio"}
     >{navbar.portfolio}</a
   >
 </li>
 
 <!-- DESKTOP -->
-<li class="hidden lg:block"><a href="/#services">{navbar.services}</a></li>
-<li class="hidden lg:block"><a href="/#pricing">{navbar.pricing}</a></li>
-<li class="hidden lg:block"><a href="/#portfolio">{navbar.portfolio}</a></li>
+<li class="hidden lg:block">
+  <a href={prefix + "#services"}>{navbar.services}</a>
+</li>
+<li class="hidden lg:block">
+  <a href={prefix + "#pricing"}>{navbar.pricing}</a>
+</li>
+<li class="hidden lg:block">
+  <a href={prefix + "#portfolio"}>{navbar.portfolio}</a>
+</li>

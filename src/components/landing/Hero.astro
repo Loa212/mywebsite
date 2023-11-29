@@ -1,0 +1,47 @@
+---
+import getHrefPrefix from "~/utils/getHrefPrefix";
+import { BackdropShape } from "..";
+import { ArrowRight } from "../icons";
+import { type CollectionEntry, getEntry } from "astro:content";
+
+export interface Props {
+  i18nId: CollectionEntry<"i18n">["id"];
+}
+
+const { i18nId } = Astro.props;
+
+const i18n = await getEntry("i18n", i18nId);
+const { landingHero: hero } = i18n.data;
+
+const prefix = getHrefPrefix(i18nId);
+---
+
+<div
+  class="relative grow h-full min-h-[80vh] flex flex-col items-center justify-center"
+>
+  <!-- background -->
+  <BackdropShape />
+
+  <!-- content -->
+  <div class="text-center space-y-8 max-w-3xl p-4 pt-24 lg:p-0">
+    <h1 class="text-base-content text-6xl lg:text-7xl font-bold mx-4">
+      {hero.title}
+    </h1>
+    <p class="text-xl lg:text-2xl">
+      {hero.subtitle}
+    </p>
+
+    <a
+      href={prefix + "#contact-us"}
+      class="btn lg:btn-lg btn-primary border-0 text-white shadow-xl"
+    >
+      {hero.cta}
+      <div
+        id="arrow"
+        class="animate-shake animate-twice animate-duration-500 animate-delay-1000 animate-ease-linear animate-normal"
+      >
+        <ArrowRight />
+      </div>
+    </a>
+  </div>
+</div>

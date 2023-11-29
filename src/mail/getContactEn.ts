@@ -1,7 +1,7 @@
 import type { ContactEmailProps } from ".";
 
 export default function ContactEmailEng(props: ContactEmailProps) {
-  const { fullname, email, message } = props;
+  const { fullname, email, businessName, website, message } = props;
 
   return `
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -221,6 +221,26 @@ export default function ContactEmailEng(props: ContactEmailProps) {
                             text-decoration-line: none;
                           "
                         >${email}</a>
+                      </li>
+                      <li
+                        style="
+                          color: rgb(0, 0, 0);
+                          font-size: 14px;
+                          line-height: 24px;
+                        "
+                      >
+                        <strong>Name of your business:</strong>
+                        ${businessName}
+                      </li>
+                      <li
+                        style="
+                          color: rgb(0, 0, 0);
+                          font-size: 14px;
+                          line-height: 24px;
+                        "
+                      >
+                        <strong>Current website:</strong>
+                        ${website}
                       </li>
                       <li>
                         <strong>Message:</strong>

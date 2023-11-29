@@ -1,0 +1,30 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Hero, PricelessPricing } from "./landing";
+import UsedBy from "./UsedBy.astro";
+import Stats from "./Stats.astro";
+import { BottomCta, Contact, Footer, Portfolio, Services } from ".";
+import AdCopy from "./AdCopy.astro";
+
+export interface Props {
+  i18nId: CollectionEntry<"i18n">["id"];
+}
+
+const { i18nId } = Astro.props;
+const RECAPTCHA_SITE_KEY = import.meta.env.RECAPTCHA_SITE_KEY;
+---
+
+<Hero i18nId={i18nId} />
+
+<UsedBy i18nId={i18nId} />
+<Stats i18nId={i18nId} />
+<Services i18nId={i18nId} />
+
+<PricelessPricing i18nId={i18nId} />
+
+<AdCopy i18nId={i18nId} />
+
+<Contact i18nId={i18nId} siteKey={RECAPTCHA_SITE_KEY} />
+<Portfolio i18nId={i18nId} />
+<BottomCta i18nId={i18nId} />
+<Footer i18nId={i18nId} />

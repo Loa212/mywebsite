@@ -10,10 +10,11 @@ const recaptchaSecretKey = import.meta.env.RECAPTCHA_SECRET_KEY;
 
 export const POST: APIRoute = async ({ request }) => {
   const data = await request.formData();
-  const i18nId = data.get("i18n") as CollectionEntry<"i18n">["id"];
 
   // google recaptcha
   const recaptchaToken = data.get("g-recaptcha-response");
+
+  console.log({ recaptchaToken });
 
   const recaptchaResponse = await fetch(
     "https://www.google.com/recaptcha/api/siteverify",
@@ -41,8 +42,11 @@ export const POST: APIRoute = async ({ request }) => {
   // get the data from the form
   const fullname = data.get("name");
   const email = data.get("email");
+  const businessName = data.get("businessName");
+  const website = data.get("website") || "<i>not provided</i>"; // optional
   const message = data.get("message");
 
+  const i18nId = data.get("i18nId") as CollectionEntry<"i18n">["id"];
   // get the i18n responses
   if (!i18nId)
     return new Response(
@@ -56,7 +60,7 @@ export const POST: APIRoute = async ({ request }) => {
   const mailer = t.data.mailer;
 
   // Validate the data - you'll probably want to do more than this
-  if (!fullname || !email || !message) {
+  if (!fullname || !email || !message || !businessName) {
     return new Response(
       JSON.stringify({
         message: mailer.missing_fields,
@@ -68,6 +72,8 @@ export const POST: APIRoute = async ({ request }) => {
   const contactEmailProps: ContactEmailProps = {
     fullname: `${fullname}`,
     email: `${email}`,
+    businessName: `${businessName}`,
+    website: `${website}`,
     message: `${message}`,
   };
 

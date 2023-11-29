@@ -15,7 +15,6 @@ import Footer from "./Footer.astro";
 import CookiesBanner from "./CookiesBanner.astro";
 import ScrollTop from "./ScrollTop.astro";
 import Contact from "./Contact.astro";
-import PricelessPricing from "./PricelessPricing.astro";
 
 export {
   Button,
@@ -35,6 +34,6 @@ export {
   CookiesBanner,
   ScrollTop,
   Contact,
-  PricelessPricing,
+
   //more...
 };

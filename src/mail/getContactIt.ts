@@ -1,7 +1,7 @@
 import type { ContactEmailProps } from ".";
 
 export default function ContactEmailIta(props: ContactEmailProps) {
-  const { fullname, email, message } = props;
+  const { fullname, email, businessName, website, message } = props;
 
   return `
   <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -222,8 +222,28 @@ export default function ContactEmailIta(props: ContactEmailProps) {
                             "
                           >${email}</a>
                         </li>
+                        <li
+                        style="
+                          color: rgb(0, 0, 0);
+                          font-size: 14px;
+                          line-height: 24px;
+                        "
+                      >
+                        <strong>Nome della tua attività:</strong>
+                        ${businessName}
+                      </li>
+                      <li
+                      style="
+                        color: rgb(0, 0, 0);
+                        font-size: 14px;
+                        line-height: 24px;
+                      "
+                    >
+                      <strong>Sito attuale:</strong>
+                      ${website}
+                    </li>
                         <li>
-                          <strong>Messaggio:</strong>
+                          <strong>Descrizione della tua attività:</strong>
                           <p
                             data-id="react-email-text"
                             style="
