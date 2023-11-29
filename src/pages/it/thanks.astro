@@ -1,0 +1,44 @@
+---
+import Main from "~/layouts/main.astro";
+import I18n from "./i18n";
+import { SITE_TITLE } from "~/constants";
+import { BackdropShape } from "~/components";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Loa212</title>
+    <meta name="description" content="Loa212" />
+  </head>
+
+  <Main title={SITE_TITLE} i18nId={I18n}>
+    <div
+      class="relative grow h-full min-h-[80vh] flex flex-col items-center justify-center"
+    >
+      <!-- background -->
+      <BackdropShape />
+
+      <!-- content -->
+      <div class="text-center space-y-8 max-w-3xl p-4 pt-24 lg:p-0">
+        <h1 class="text-base-content text-6xl lg:text-7xl font-bold mx-4">
+          Thanks for your submission!
+        </h1>
+        <p class="text-xl lg:text-2xl">
+          We will get back to you as soon as possible.
+        </p>
+
+        <a
+          href={"/"}
+          class="btn lg:btn-lg btn-primary border-0 text-white shadow-xl"
+        >
+          Back to Home
+        </a>
+      </div>
+    </div>
+  </Main>
+
+</html>

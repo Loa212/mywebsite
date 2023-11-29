@@ -20,37 +20,5 @@ import Home from "~/components/Home.astro";
     <Home i18nId={I18n} />
   </Main>
 
-  <!-- <script define:vars={{ RECAPTCHA_SITE_KEY: RECAPTCHA_SITE_KEY }}>
-    document.addEventListener("DOMContentLoaded", () => {
-      const contactForm = document.getElementById("contact-us");
-      if (!contactForm) {
-        console.error("Contact form not found");
-        return;
-      }
-
-      const observer = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              // Load reCAPTCHA script dynamically
-              const script = document.createElement("script");
-              script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
-              script.onload = () => {
-                document.dispatchEvent(new Event("recaptchaLoaded"));
-              };
-              document.head.appendChild(script);
-
-              // Stop observing after loading the script
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.5 }
-      ); // Adjust threshold as needed
-
-      observer.observe(contactForm);
-    });
-  </script> -->
-
 
 </html>

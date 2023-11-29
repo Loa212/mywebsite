@@ -3,7 +3,6 @@ import Main from "~/layouts/main.astro";
 import i18n from "./i18n";
 import { SITE_TITLE } from "~/constants";
 import Home from "~/components/Home.astro";
-// const RECAPTCHA_SITE_KEY = import.meta.env.RECAPTCHA_SITE_KEY;
 ---
 
 <html lang="it">
@@ -19,38 +18,6 @@ import Home from "~/components/Home.astro";
   <Main title={SITE_TITLE} i18nId={i18n}>
     <Home i18nId={i18n} />
   </Main>
-
-  <!-- <script define:vars={{ RECAPTCHA_SITE_KEY: RECAPTCHA_SITE_KEY }}>
-    document.addEventListener("DOMContentLoaded", () => {
-      const contactForm = document.getElementById("contact-form");
-      if (!contactForm) {
-        console.error("Contact form not found");
-        return;
-      }
-
-      const observer = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              // Load reCAPTCHA script dynamically
-              const script = document.createElement("script");
-              script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}&onload=RECAPTCHAonloadCallback`;
-              script.onload = () => {
-                document.dispatchEvent(new Event("recaptchaLoaded"));
-              };
-              document.head.appendChild(script);
-
-              // Stop observing after loading the script
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.5 }
-      ); // Adjust threshold as needed
-
-      observer.observe(contactForm);
-    });
-  </script> -->
 
 
 </html>
