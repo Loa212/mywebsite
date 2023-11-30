@@ -170,6 +170,22 @@ const { contact } = i18n.data;
 </style>
 
 <script define:vars={{ siteKey, i18nId, contact, prefix }}>
+  function enableSubmitButton() {
+    const submitButton = document.querySelector(
+      "#contact-form button[type=submit]"
+    );
+    submitButton.disabled = false;
+    submitButton.textContent = contact.cta;
+  }
+
+  function disableSubmitButton() {
+    const submitButton = document.querySelector(
+      "#contact-form button[type=submit]"
+    );
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending...";
+  }
+
   // Function to dynamically load the reCAPTCHA script
   function loadRecaptchaScript() {
     const script = document.createElement("script");
@@ -221,6 +237,9 @@ const { contact } = i18n.data;
             form.appendChild(hiddenInput);
           }
 
+          // disable and change text of submit button
+          disableSubmitButton();
+
           // Use the Fetch API to submit the form data
           const formData = new FormData(form);
           const response = await fetch(form.action, {
@@ -237,7 +256,9 @@ const { contact } = i18n.data;
           const domain = window.location.origin;
           window.location.href = domain + prefix + "thanks";
         } catch (error) {
-          console.error("Error submitting form:", error);
+          alert("There was an error submitting the form. Please try again.");
+          enableSubmitButton();
+          throw new Error(error);
           // Handle errors, display error message, etc.
         }
       });

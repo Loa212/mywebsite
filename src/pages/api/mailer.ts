@@ -2,6 +2,8 @@ import type { APIRoute } from "astro";
 import { type CollectionEntry, getEntry } from "astro:content";
 import { Resend } from "resend";
 import { getContactEn, type ContactEmailProps, getContactIt } from "~/mail";
+import axios, { type AxiosRequestConfig, type AxiosError } from "axios";
+import hashString from "~/utils/hashString";
 export const prerender = false;
 
 // Create a new Resend instance with your API key
@@ -93,12 +95,52 @@ export const POST: APIRoute = async ({ request }) => {
           : getContactIt(contactEmailProps),
     });
 
-    return new Response(
-      JSON.stringify({
-        message: mailer.success,
-      }),
-      { status: 200 }
-    );
+    // send a post request to facebook signaling that the user has contacted us
+
+    const FB_API_VERSION = import.meta.env.FB_API_VERSION;
+    const FB_PIXEL_ID = import.meta.env.FB_PIXEL_ID;
+    const FB_ACCESS_TOKEN = import.meta.env.FB_ACCESS_TOKEN;
+
+    // create config for axios
+    const config: AxiosRequestConfig = {
+      method: "POST",
+      url: `https://graph.facebook.com/${FB_API_VERSION}/${FB_PIXEL_ID}/events?access_token=${FB_ACCESS_TOKEN}`,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: {
+        data: [
+          {
+            event_name: "Lead",
+            event_time: Math.floor(Date.now() / 1000),
+            action_source: "website",
+            user_data: {
+              em: [
+                // hash of the email
+                hashString(String(email)),
+              ],
+            },
+          },
+        ],
+      },
+    };
+
+    try {
+      // Send the request to Facebook
+      const response = await axios(config);
+      console.log(response.data);
+    } catch (fbError) {
+      // Handle Facebook API errors separately
+      const errData = (fbError as AxiosError).response?.data;
+      console.error("FB err: ", errData);
+      return new Response(
+        JSON.stringify({
+          message: "Facebook API error",
+          data: fbError,
+        }),
+        { status: 400 }
+      );
+    }
   } catch (error) {
     console.error({ error });
     return new Response(
@@ -108,4 +150,12 @@ export const POST: APIRoute = async ({ request }) => {
       { status: 400 }
     );
   }
+
+  // send the response
+  return new Response(
+    JSON.stringify({
+      message: mailer.success,
+    }),
+    { status: 200 }
+  );
 };
