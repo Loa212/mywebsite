@@ -11,7 +11,7 @@ export interface Props {
 const { i18nId } = Astro.props;
 
 const i18n = await getEntry("i18n", i18nId);
-const { landingHero: hero } = i18n.data;
+const { hero } = i18n.data;
 
 const prefix = getHrefPrefix(i18nId);
 ---
